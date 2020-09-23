@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_Hutch_Gauges" Id="{3363ae0b-7e70-402f-8251-bbfa3badc357}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_Hutch_Gauges
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Roughing Gauges *)
+	TMO_ROUGH1_GPI_01(PG=>);
+	TMO_ROUGH1_GPI_02(PG=>);
+	TMO_ROUGH1_GPI_03(PG=>);
+	TMO_ROUGH2_GPI_01(PG=>);
+
+
+(* Beamline Pirani & Cold Cathode*)
+	MR2K4_KBO_GPI_01(); 
+	MR2K4_KBO_GCC_01(PG:=MR2K4_KBO_GPI_01.PG , IG=> );
+	
+	PA1K4_IP1_GPI_01(); 
+	PA1K4_IP1_GCC_01(PG:=TMO_ROUGH1_GPI_02.PG , IG=> );
+	
+	IM4K4_PPM_GCC_01(PG:=TMO_ROUGH1_GPI_02.PG , IG=> );
+	
+	LI2K4_IP1_GFS_01(PG:=TMO_ROUGH1_GPI_02.PG , IG=> );
+	
+	TM1K4_GCC_01(PG:=TMO_ROUGH1_GPI_03.PG , IG=> );
+	
+	IM5K4_PPM_GCC_01(PG:=TMO_ROUGH1_GPI_03.PG , IG=> );
+	
+	PA2K4_IP1_GPI_01();
+	PA2K4_IP1_GCC_01(PG:=PA2K4_IP1_GPI_01.PG , IG=> );
+	
+	MR4K4_KBO_GPI_01();
+	MR4K4_KBO_GCC_01(PG:=MR4K4_KBO_GPI_01.PG , IG=> );
+	
+
+	
+	]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

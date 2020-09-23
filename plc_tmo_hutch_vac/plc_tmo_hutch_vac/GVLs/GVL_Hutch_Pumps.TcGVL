@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="GVL_Hutch_Pumps" Id="{b72ca84e-5328-4ab7-b44d-f529358c351a}">
+    <Declaration><![CDATA[//{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+(* Ion pumps *)
+
+	MR2K4_KBO_PIP_01 : FB_PIP_Gamma;
+	
+	MR4K4_KBO_PIP_01 : FB_PIP_Gamma;
+	
+	PA2K4_IP1_PIP_01 : FB_PIP_Gamma;
+	
+
+(* Granite 1 *)
+(* Pfeiffer Turbo Pumps TC110 *)
+
+	PA1K4_IP1_PTM_01 : FB_PTM_Pfeiffer;
+	
+	PA1K4_IP1_PTM_02 : FB_PTM_Pfeiffer;
+	
+	PA1K4_IP1_PTM_03 : FB_PTM_Pfeiffer;
+
+(* Leybold Turbo Pumps Mag.drive is*)	
+	IM4K4_PPM_PTM_01 : FB_PTM_TurboDrive;
+	LI1K4_IP1_PTM_01 : FB_PTM_TurboDrive;
+
+(* Granite 2 *)
+(* Pfeiffer Turbo Pumps TM700 *)
+    LI3K4_IP1_OUT_PTM_01 : FB_PTM_Pfeiffer;
+
+(* Pfeiffer Turbo Pumps TC400 *)	
+	TM1K4_PTM_01 : FB_PTM_Pfeiffer;
+	IM5K4_PPM_PTM_01 : FB_PTM_Pfeiffer;
+
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

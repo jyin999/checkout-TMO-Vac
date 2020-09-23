@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_Roughing_Control" Id="{87120f5c-8975-4cdd-a125-ee85e558c6d5}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_Roughing_Control
+VAR
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

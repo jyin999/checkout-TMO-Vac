@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="F_TMO_RoughVRC" Id="{923fd527-01a5-4fc8-9fca-a16621757af1}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_TMO_RoughVRC : BOOL
+VAR_INPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

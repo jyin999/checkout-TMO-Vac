@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="F_Turbos_isRunning" Id="{dc8b9c8e-1511-4ff6-bb98-c4eb652ec8d1}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_Turbos_isRunning : BOOL
+VAR_INPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* All Turbo pumps is at speed and no faults *)
+
+F_Turbos_isRunning := ( PA1K4_IP1_PTM_01.iq_stPTM.i_xAtSpd AND NOT PA1K4_IP1_PTM_01.iq_stPTM.i_xFault ) AND 
+                        ( PA1K4_IP1_PTM_02.iq_stPTM.i_xAtSpd AND NOT PA1K4_IP1_PTM_02.iq_stPTM.i_xFault ) AND
+						( PA1K4_IP1_PTM_03.iq_stPTM.i_xAtSpd AND NOT PA1K4_IP1_PTM_03.iq_stPTM.i_xFault ) AND
+						( IM4K4_PPM_PTM_01.iq_stPTM.i_xAtSpd AND NOT IM4K4_PPM_PTM_01.iq_stPTM.i_xFault ) AND
+						( LI1K4_IP1_PTM_01.iq_stPTM.i_xAtSpd AND NOT LI1K4_IP1_PTM_01.iq_stPTM.i_xFault ) AND
+						( LI3K4_IP1_OUT_PTM_01.iq_stPTM.i_xAtSpd AND NOT LI3K4_IP1_OUT_PTM_01.iq_stPTM.i_xFault ) AND
+						( TM1K4_PTM_01.iq_stPTM.i_xAtSpd AND NOT TM1K4_PTM_01.iq_stPTM.i_xFault ) AND
+						( IM5K4_PPM_PTM_01.iq_stPTM.i_xAtSpd AND NOT IM5K4_PPM_PTM_01.iq_stPTM.i_xFault ) ;
+
+                         
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

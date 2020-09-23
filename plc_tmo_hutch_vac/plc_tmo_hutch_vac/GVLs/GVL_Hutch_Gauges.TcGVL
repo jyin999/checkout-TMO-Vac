@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="GVL_Hutch_Gauges" Id="{def8edf1-144c-4ec2-bb9e-c76eb49492a9}">
+    <Declaration><![CDATA[//{attribute 'qualified_only'}
+VAR_GLOBAL
+(* Pirani & Cold Cathode*)
+	MR2K4_KBO_GPI_01 : FB_MKS275;
+	MR2K4_KBO_GCC_01 : FB_MKS500;
+	
+	PA1K4_IP1_GPI_01 : FB_MKS275;
+	PA1K4_IP1_GCC_01 : FB_MKS500;
+	
+	IM4K4_PPM_GCC_01 : FB_MKS500;
+	
+	LI2K4_IP1_GFS_01 : FB_MKS422;
+	
+	TM1K4_GCC_01 : FB_MKS500;
+	
+	IM5K4_PPM_GCC_01 : FB_MKS500;
+	
+	PA2K4_IP1_GPI_01 : FB_MKS275;
+	PA2K4_IP1_GCC_01 : FB_MKS500;
+	
+	MR4K4_KBO_GPI_01 : FB_MKS275;
+	MR4K4_KBO_GCC_01 : FB_MKS500;
+	
+	(* Roughing gauges *)
+
+	TMO_ROUGH1_GPI_01 : FB_MKS909;
+	TMO_ROUGH1_GPI_02 : FB_MKS909;
+	TMO_ROUGH1_GPI_03 : FB_MKS909;
+	
+	TMO_ROUGH2_GPI_01 : FB_MKS909;
+	
+	
+	
+	
+	
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
