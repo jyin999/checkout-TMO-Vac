@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <GVL Name="GVL_FS_Devices" Id="{f2a46abb-4dc4-4237-a7d3-b480d2b0f034}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+    {attribute 'pytmc' := '
+		pv: TV1K4:VFS:1
+	'}
+	fb_TV1K4_VFS_1 : FB_VFS;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
