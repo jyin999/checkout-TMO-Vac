@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="F_Turbo_Protection_ILK" Id="{f4039f3c-91d7-4470-b7a1-7d5bc9857c4c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_Turbo_Protection_ILK : BOOL
+VAR_INPUT
+	i_Turbo : ST_PTM; // Turbo Pump
+	i_stISG : ST_VG; //Gauge measuring inlet Pressure e.g Pirani
+	i_stBSG : ST_VG; //Gauge measureing backing pressure
+	iq_stValve : ST_VRC; //
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+F_Turbo_Protection_ILK := (i_stISG.xPRESS_OK AND i_stISG.rPRESS < i_Turbo.rInletPressureSP) AND (i_stBSG.xPRESS_OK AND i_stBSG.rPRESS < i_Turbo.rBackingPressureSP)AND iq_stValve.i_xOpnLS;]]></ST>
+    </Implementation>
+    <LineIds Name="F_Turbo_Protection_ILK">
+      <LineId Id="10" Count="0" />
+      <LineId Id="13" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -33,7 +33,7 @@
 		<Box File="Term 1 (EK1200).xti" Id="1">
 			<EtherCAT PortABoxInfo="#x00ffffff"/>
 		</Box>
-		<Box File="Box 3 (EP4374-0002).xti" Id="3">
+		<Box File="TMO_WALL_WEST_EP01 (EP4374-0002).xti" Id="3">
 			<EtherCAT PortABoxInfo="#x01000002"/>
 		</Box>
 		<Box File="TMO_K4S2_DRL_01 (EK1100).xti" Id="4">
@@ -48,10 +48,10 @@
 		<Box File="TMO_K4S6_ EP1 (EP4374-0002).xti" Id="30">
 			<EtherCAT PortABoxInfo="#x0100001d"/>
 		</Box>
-		<Box File="Term 63 (EK1100).xti" Id="63">
+		<Box File="TMO_K4S6_DRL_01 (EK1100).xti" Id="63">
 			<EtherCAT PortABoxInfo="#x0100001e"/>
 		</Box>
-		<Box File="Term 83 (EK1100).xti" Id="83">
+		<Box File="TMO_K4S8_DRL_01 (EK1100).xti" Id="83">
 			<EtherCAT PortABoxInfo="#x0200003f"/>
 		</Box>
 		<EtherCAT/>

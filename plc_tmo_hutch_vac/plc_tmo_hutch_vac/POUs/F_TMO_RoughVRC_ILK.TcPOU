@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="F_TMO_RoughVRC_ILK" Id="{923fd527-01a5-4fc8-9fca-a16621757af1}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_TMO_RoughVRC_ILK : BOOL
+VAR_INPUT
+	i_stISG : ST_VG; //Gauge measuring inlet Pressure e.g Pirani
+	i_stBSG : ST_VG; //Gauge measuring backing Pressure e.g Pirani
+	
+END_VAR
+VAR
+
+	rInletPressureSP : REAL := 1E-03;
+	rBackingPressureSP : REAL := 1E-03;
+END_VAR
+
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* This Function Block evaluates the ILK condition of the roughing valve *)
+(* The logic allows roughing valve to open when both inlet and backing pressure below than the SP*)
+
+F_TMO_RoughVRC_ILK := (i_stISG.xPRESS_OK AND i_stISG.rPRESS < rInletPressureSP)
+						AND (i_stBSG.xPRESS_OK AND i_stBSG.rPRESS < rBackingPressureSP);]]></ST>
+    </Implementation>
+    <LineIds Name="F_TMO_RoughVRC_ILK">
+      <LineId Id="8" Count="1" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="12" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

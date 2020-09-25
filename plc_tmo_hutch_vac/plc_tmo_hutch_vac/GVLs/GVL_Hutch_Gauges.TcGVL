@@ -4,12 +4,36 @@
     <Declaration><![CDATA[//{attribute 'qualified_only'}
 VAR_GLOBAL
 (* Pirani & Cold Cathode*)
+
+	{attribute 'pytmc' :=' pv: MR2K4:KBO:GPI:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E1 (EL3174)^AI Standard Channel 2^Value '}
 	MR2K4_KBO_GPI_01 : FB_MKS275;
+	
+	{attribute 'pytmc' :=' pv: TV1K4:GCC:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E1 (EL3174)^AI Standard Channel 3^Value;
+								 .i_xHV_ON	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E7 (EL1124)^Channel 3^Input;
+								 .i_xDisc_Active	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E7 (EL1124)^Channel 4^Input;								 
+								 .q_xHV_DIS		:= 	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E5 (EL2624)^Channel 2^Output	'}	
 	MR2K4_KBO_GCC_01 : FB_MKS500;
 	
+	{attribute 'pytmc' :=' pv: PA1K4:IP1:GPI:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E2 (EL3174)^AI Standard Channel 1^Value '}	
 	PA1K4_IP1_GPI_01 : FB_MKS275;
+	
+
+	{attribute 'pytmc' :=' pv: PA1K4:IP1:GCC:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E1 (EL3174)^AI Standard Channel 4^Value;
+								 .i_xHV_ON	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E8 (EL1124)^Channel 1^Input;
+								 .i_xDisc_Active	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E8 (EL1124)^Channel 2^Input;								 
+								 .q_xHV_DIS		:= 	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E5 (EL2624)^Channel 3^Output	'}		
 	PA1K4_IP1_GCC_01 : FB_MKS500;
 	
+
+	{attribute 'pytmc' :=' pv: PA1K4:IP1:GCC:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E2 (EL3174)^AI Standard Channel 2^Value;
+								 .i_xHV_ON	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E8 (EL1124)^Channel 3^Input;
+								 .i_xDisc_Active	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E8 (EL1124)^Channel 4^Input;								 
+								 .q_xHV_DIS		:= 	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E5 (EL2624)^Channel 4^Output	'}			
 	IM4K4_PPM_GCC_01 : FB_MKS500;
 	
 	LI2K4_IP1_GFS_01 : FB_MKS422;
@@ -26,13 +50,25 @@ VAR_GLOBAL
 	
 	(* Roughing gauges *)
 
-	TMO_ROUGH1_GPI_01 : FB_MKS909;
-	TMO_ROUGH1_GPI_02 : FB_MKS909;
-	TMO_ROUGH1_GPI_03 : FB_MKS909;
+	{attribute 'pytmc' :=' pv: TMO:ROUGH1:GPI:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_WALL_WEST_EP01 (EP4374-0002)]^AI Inputs Channel 1^Value	'}	
+	TMO_ROUGH1_GPI_01 : FB_9XX;
 	
-	TMO_ROUGH2_GPI_01 : FB_MKS909;
+	{attribute 'pytmc' :=' pv: TMO:ROUGH1:GPI:02 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_ EP1 (EP4374-0002)]^AI Inputs Channel 1^Value	'}	
+	TMO_ROUGH1_GPI_02 : FB_9XX;
 	
+	{attribute 'pytmc' :=' pv: TMO:ROUGH1:GPI:03 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S6_ EP1 (EP4374-0002)]^AI Inputs Channel 1^Value	'}		
+	TMO_ROUGH1_GPI_03 : FB_9XX;
+
+	{attribute 'pytmc' :=' pv: TMO:ROUGH2:GPI:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_WALL_WEST_EP01 (EP4374-0002)]^AI Inputs Channel 2^Value	'}	
+	TMO_ROUGH2_GPI_01 : FB_9XX;
 	
+	{attribute 'pytmc' :=' pv: TMO:ROUGH2:GPI:02 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_ EP1 (EP4374-0002)]^AI Inputs Channel 2^Value	'}	
+	TMO_ROUGH2_GPI_02 : FB_9XX;	
 	
 	
 	

@@ -39,10 +39,13 @@
     <Compile Include="POUs\DIAGNOSTICS.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\F_TMO_RoughVRC.TcPOU">
+    <Compile Include="POUs\F_TMO_RoughVRC_ILK.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\F_Turbos_isRunning.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\F_Turbo_Protection_ILK.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
@@ -60,7 +63,7 @@
     <Compile Include="POUs\PRG_Hutch_Gauges.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\PRG_Roughing_Control.TcPOU">
+    <Compile Include="POUs\PRG_Roughing_Pumps.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

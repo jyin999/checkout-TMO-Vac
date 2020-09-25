@@ -11,6 +11,7 @@ END_VAR
 	TMO_ROUGH1_GPI_02(PG=>);
 	TMO_ROUGH1_GPI_03(PG=>);
 	TMO_ROUGH2_GPI_01(PG=>);
+	TMO_ROUGH2_GPI_02(PG=>);
 
 
 (* Beamline Pirani & Cold Cathode*)
@@ -38,5 +39,11 @@ END_VAR
 	
 	]]></ST>
     </Implementation>
+    <LineIds Name="PRG_Hutch_Gauges">
+      <LineId Id="3" Count="4" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="8" Count="24" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
