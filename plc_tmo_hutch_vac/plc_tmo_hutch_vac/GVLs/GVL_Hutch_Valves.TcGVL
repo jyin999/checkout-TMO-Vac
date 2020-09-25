@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <GVL Name="GVL_Hutch_Valves" Id="{5ddb466e-44cc-4224-86e4-d5a4b2428cea}">
     <Declaration><![CDATA[//{attribute 'qualified_only'}
 VAR_GLOBAL
@@ -65,6 +65,27 @@ VAR_GLOBAL
 	{attribute 'pytmc' :=' pv: TMO:ROUGH2:VFV:01 '}
 	{attribute 'TcLinkTo' := 	'.q_iRawPosition	:=	TIIB[TMO_K4S2_ EP1 (EP4374-0002)]^AO Outputs Channel 4^Analog output	'}		 
 	 TMO_ROUGH2_VFV_01 : FB_MKS248;
+	 
+(* VFS valves *)
+
+	{attribute 'TcLinkTo' :='.q_xPress_OK		:= 	TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xPress_OK;
+							 .q_xOPN_SW			:=  TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xOPN_SW;
+							 .q_xCLS_SW			:=  TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xCLS_SW;
+							 .q_xVAC_FAULT_Reset:= 	TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xVAC_FAULT_Reset;
+							 .q_xOverrideMode	:= 	TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xOverrideMode;
+							 .q_xOverrideOpen	:= 	TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xOverrideOpen;
+							 .i_xTrigger		:=	TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xTrigger;
+							 .i_xVFS_Open		:=	TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xVFS_Open;
+							 .i_xVFS_Closed		:=	TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xVFS_Closed;
+							 .i_xVAC_FAULT_OK	:=	TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xVAC_FAULT_OK;
+							 .i_xMPS_OK			:=  TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xMPS_OK;
+							 .i_eVFS_State		:=	TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance^PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_eVFS_State
+	'}
+	{attribute 'pytmc' := '
+		pv: TV1KK:VFS:1
+		io: io
+	'}	
+	TV1K4_VFS_1_Interface : FB_VFS_Interface;
 	 
 
 	
