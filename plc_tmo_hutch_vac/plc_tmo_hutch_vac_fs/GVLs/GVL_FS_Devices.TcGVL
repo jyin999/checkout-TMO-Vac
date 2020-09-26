@@ -6,6 +6,11 @@
 		pv: MR3K4:KBO:VFS_1
 	'}
 	MR3K4_KBO_VFS_1 : FB_VFS;
+	
+	{attribute 'pytmc' := '
+		pv: MR3K4:KBO:VFS_1
+	'}
+	MR4K4_KBO_VFS_1 : FB_VFS;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

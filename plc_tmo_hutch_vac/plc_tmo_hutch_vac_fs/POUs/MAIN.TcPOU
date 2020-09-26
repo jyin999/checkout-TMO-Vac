@@ -9,15 +9,23 @@ END_VAR
       <ST><![CDATA[MR3K4_KBO_VFS_1(
 	i_xPMPS_OK:= TRUE, 
 	i_xExt_OK:= TRUE, 
-	i_sDevName:= 'TV1K4:VFS:1',
+	i_sDevName:= 'MR3K4:KBO:VFS:1',
 	io_fbFFHWO:= g_FastFaultOutput3
 );
 
+MR4K4_KBO_VFS_1(
+	i_xPMPS_OK:= TRUE, 
+	i_xExt_OK:= TRUE, 
+	i_sDevName:= 'MR4K4:KBO:VFS:1',
+	io_fbFFHWO:= g_FastFaultOutput3
+);
 (*FastFaultOuput*)	
 g_FastFaultOutput3.Execute(bAutoReset:= TRUE);]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="6" Count="7" />
+      <LineId Id="6" Count="5" />
+      <LineId Id="14" Count="5" />
+      <LineId Id="12" Count="1" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>
