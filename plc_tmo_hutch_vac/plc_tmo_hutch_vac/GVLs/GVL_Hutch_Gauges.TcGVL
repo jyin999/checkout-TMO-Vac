@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <GVL Name="GVL_Hutch_Gauges" Id="{def8edf1-144c-4ec2-bb9e-c76eb49492a9}">
     <Declaration><![CDATA[//{attribute 'qualified_only'}
 VAR_GLOBAL
@@ -9,7 +9,7 @@ VAR_GLOBAL
 	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E1 (EL3174)^AI Standard Channel 2^Value '}
 	MR2K4_KBO_GPI_01 : FB_MKS275;
 	
-	{attribute 'pytmc' :=' pv: TV1K4:GCC:01 '}
+	{attribute 'pytmc' :=' pv: MR2K4:KBO:GCC:01 '}
 	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E1 (EL3174)^AI Standard Channel 3^Value;
 								 .i_xHV_ON	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E7 (EL1124)^Channel 3^Input;
 								 .i_xDisc_Active	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E7 (EL1124)^Channel 4^Input;								 
@@ -29,7 +29,7 @@ VAR_GLOBAL
 	PA1K4_IP1_GCC_01 : FB_MKS500;
 	
 
-	{attribute 'pytmc' :=' pv: PA1K4:IP1:GCC:01 '}
+	{attribute 'pytmc' :=' pv: IM4K4:PPM:GCC:01 '}
 	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E2 (EL3174)^AI Standard Channel 2^Value;
 								 .i_xHV_ON	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E8 (EL1124)^Channel 3^Input;
 								 .i_xDisc_Active	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E8 (EL1124)^Channel 4^Input;								 

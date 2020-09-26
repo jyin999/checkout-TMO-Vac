@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <GVL Name="GVL_FEE_Device" Id="{1e099b9b-502c-4923-9f77-b69bd66fefa8}">
     <Declaration><![CDATA[//{attribute 'qualified_only'}
 VAR_GLOBAL
@@ -95,9 +95,7 @@ VAR_GLOBAL
 	RTDSL0_PIP_01 : FB_PIP_Gamma;
 	*)
 
-	{attribute 'pytmc' :=' 
-			pv: MR1K4:SOMS:PIP:01 '
- 		}
+	{attribute 'pytmc' :=' pv: MR1K4:SOMS:PIP:01 '}
 	{attribute 'TcLinkTo' := 	'.i_iPRESS		:=	TIIB[CX0_E6_QPC1 (EL3064)]^AI Standard Channel 1^Value;
 								 .i_xSP_DI		:= 	TIIB[CX0_E7_QPC1 (EL1004)]^Channel 1^Input;
 								 .q_xHVEna_DO	:= 	TIIB[CX0_E8_QPC1 (EL2794)]^Channel 1^Output
