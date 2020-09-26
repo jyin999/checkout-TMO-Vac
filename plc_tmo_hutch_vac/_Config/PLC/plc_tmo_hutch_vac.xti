@@ -1181,14 +1181,6 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_PMPS.g_FastFaultOutput1.q_xFastFaultOut</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_PMPS.g_FastFaultOutput2.q_xFastFaultOut</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>GVL_Hutch_Valves.MR2K4_KBO_VWC_01.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -1312,6 +1304,14 @@
 				</Var>
 				<Var>
 					<Name>GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.q_xOverrideOpen</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_PMPS.g_FastFaultOutput1.q_xFastFaultOut</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_PMPS.g_FastFaultOutput2.q_xFastFaultOut</Name>
 					<Type>BOOL</Type>
 				</Var>
 			</Vars>

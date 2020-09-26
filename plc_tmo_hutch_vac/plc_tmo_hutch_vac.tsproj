@@ -185,10 +185,6 @@
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
 						<Var>
-							<Name>GVL_FSV_PMPS.g_FastFaultOutput3.q_xFastFaultOut</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xClose_A</Name>
 							<Type>BOOL</Type>
 						</Var>
@@ -279,6 +275,10 @@
 							<Name>GVL_FS_Devices.MR4K4_KBO_VFS_1.q_eVFS_State</Name>
 							<Comment><![CDATA[Interface]]></Comment>
 							<Type GUID="{B79D91A1-846E-4A33-B61F-88E66D7D9241}" Namespace="LCLS_Vacuum">E_VGC</Type>
+						</Var>
+						<Var>
+							<Name>GVL_FSV_PMPS.g_FastFaultOutput3.q_xFastFaultOut</Name>
+							<Type>BOOL</Type>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="8">

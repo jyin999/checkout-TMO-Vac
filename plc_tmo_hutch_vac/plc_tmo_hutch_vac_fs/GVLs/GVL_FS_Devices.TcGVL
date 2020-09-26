@@ -5,11 +5,27 @@
     {attribute 'pytmc' := '
 		pv: MR3K4:KBO:VFS_1
 	'}
+	{attribute 'TcLinkTo' := 	'
+		.q_xClose_A	:=	TIIB[E3_VFS (EL2202)]^Channel 1^Output;
+		.q_xClose_B	:=	TIIB[E3_VFS (EL2202)]^Channel 2^Output;
+		.q_xClose_C	:=	TIIB[E4_VFS (EL2202)]^Channel 1^Output;
+		.q_xOPN_DO	:=	TIIB[E4_VFS (EL2202)]^Channel 2^Output;
+		.i_xClsLS	:=	TIIB[E1_VFS (EL1004)]^Channel 1^Input;
+		.i_xOpnLS	:=	TIIB[E1_VFS (EL1004)]^Channel 2^Input;
+		.i_xTrigger := 	'}
 	MR3K4_KBO_VFS_1 : FB_VFS;
 	
 	{attribute 'pytmc' := '
 		pv: MR3K4:KBO:VFS_1
 	'}
+	{attribute 'TcLinkTo' := 	'
+		.q_xClose_A	:=	TIIB[EL2202_11_03]^Channel 1^Output;
+		.q_xClose_B	:=	TIIB[EL2202_11_03]^Channel 2^Output;
+		.q_xClose_C	:=	TIIB[EL2202_11_04]^Channel 1^Output;
+		.q_xOPN_DO	:=	TIIB[EL2202_11_04]^Channel 2^Output;
+		.i_xClsLS	:=	TIIB[EL1004_11_01]^Channel 1^Input;
+		.i_xOpnLS	:=	TIIB[EL1004_11_01]^Channel 2^Input;
+		.i_xTrigger := 	'}
 	MR4K4_KBO_VFS_1 : FB_VFS;
 END_VAR]]></Declaration>
   </GVL>
