@@ -79,18 +79,18 @@
 		<Plc>
 			<Project File="plc_tmo_hutch_vac.xti"/>
 			<Project GUID="{EDC9D7A7-C58D-4511-875F-8641F865D98E}" Name="plc_tmo_hutch_vac_fs" PrjFilePath="plc_tmo_hutch_vac_fs\plc_tmo_hutch_vac_fs.plcproj" TmcFilePath="plc_tmo_hutch_vac_fs\plc_tmo_hutch_vac_fs.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2">
+				<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="plc_tmo_hutch_vac_fs\plc_tmo_hutch_vac_fs.tmc">
 					<Name>plc_tmo_hutch_vac_fs Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
-							<Name>LCLS_Vacuum.Global_Variables.g_stSystem.I_EcatMaster1</Name>
+							<Name>LCLS_General.DefaultGlobals.stSys.I_EcatMaster1</Name>
 							<Comment><![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]></Comment>
 							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
 						</Var>
 						<Var>
-							<Name>LCLS_General.DefaultGlobals.stSys.I_EcatMaster1</Name>
+							<Name>LCLS_Vacuum.Global_Variables.g_stSystem.I_EcatMaster1</Name>
 							<Comment><![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]></Comment>
 							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
 						</Var>
@@ -185,6 +185,10 @@
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
 						<Var>
+							<Name>GVL_FSV_PMPS.g_FastFaultOutput3.q_xFastFaultOut</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xClose_A</Name>
 							<Type>BOOL</Type>
 						</Var>
@@ -276,10 +280,6 @@
 							<Comment><![CDATA[Interface]]></Comment>
 							<Type GUID="{B79D91A1-846E-4A33-B61F-88E66D7D9241}" Namespace="LCLS_Vacuum">E_VGC</Type>
 						</Var>
-						<Var>
-							<Name>GVL_FSV_PMPS.g_FastFaultOutput3.q_xFastFaultOut</Name>
-							<Type>BOOL</Type>
-						</Var>
 					</Vars>
 					<Vars VarGrpType="8">
 						<Name>PlcTask Retains</Name>
@@ -307,6 +307,33 @@
 		</Io>
 	</Project>
 	<Mappings>
+		<MappingInfo Identifier="{00000000-2041-0850-4020-500821000403}" Id="#x02030020"/>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
+		<OwnerA Name="TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^E1_VFS (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.i_xClsLS" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.i_xOpnLS" VarB="Channel 2^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^E3_VFS (EL2202)">
+				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xClose_A" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xClose_B" VarB="Channel 2^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^E4_VFS (EL2202)">
+				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xClose_C" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S8_DRL_01 (EK1100)^EL1004_11_01">
+				<Link VarA="PlcTask Inputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.i_xClsLS" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.i_xOpnLS" VarB="Channel 2^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S8_DRL_01 (EK1100)^EL2202_11_03">
+				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xClose_A" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xClose_B" VarB="Channel 2^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S8_DRL_01 (EK1100)^EL2202_11_04">
+				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xClose_C" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true"/>
+			</OwnerB>
+		</OwnerA>
 	</Mappings>
 </TcSmProject>

@@ -488,161 +488,6 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.LI2K4_IP1_GFS_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_02.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_03.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TMO_ROUGH2_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TMO_ROUGH2_GPI_02.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
 					<Name>GVL_Hutch_Pumps.MR2K4_KBO_PIP_01.i_iPRESS</Name>
 					<Type>INT</Type>
 				</Var>
@@ -943,6 +788,161 @@
 					<Comment><![CDATA[Interface]]></Comment>
 					<Type GUID="{B79D91A1-846E-4A33-B61F-88E66D7D9241}" Namespace="LCLS_Vacuum">E_VGC</Type>
 				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.LI2K4_IP1_GFS_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_02.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_03.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TMO_ROUGH2_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TMO_ROUGH2_GPI_02.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>PlcTask Outputs</Name>
@@ -1005,46 +1005,6 @@
 				<Var>
 					<Name>GVL_FEE_Device.PC4K4_XTES_PIP_01.q_xHVEna_DO</Name>
 					<Comment><![CDATA[ Enable High Voltage when TRUE]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.LI2K4_IP1_GFS_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Disable Gauge High Voltage when True // 'TcLinkTo' (EL2794) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1312,6 +1272,46 @@
 				</Var>
 				<Var>
 					<Name>GVL_PMPS.g_FastFaultOutput2.q_xFastFaultOut</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.LI2K4_IP1_GFS_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Disable Gauge High Voltage when True // 'TcLinkTo' (EL2794) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 			</Vars>
