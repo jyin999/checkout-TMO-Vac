@@ -311,6 +311,27 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>PRG_Hutch_Beamline_Valves.LAMP_C2_GCC_01.i_iPRESS_R</Name>
+					<Comment>
+						<![CDATA[ Controls and I/Os]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_Hutch_Beamline_Valves.LAMP_C2_GCC_01.i_xHV_ON</Name>
+					<Comment>
+						<![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_Hutch_Beamline_Valves.LAMP_C2_GCC_01.i_xDisc_Active</Name>
+					<Comment>
+						<![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>PMPS.fbArbiterIO.i_stCurrentBP</Name>
 					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
 					<SubVar>
@@ -1092,14 +1113,14 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Hutch_Valves.PC5K4_KBO_VWC_01.i_xOpnLS</Name>
+					<Name>GVL_Hutch_Valves.PC5K4_VWC_01.i_xOpnLS</Name>
 					<Comment>
 						<![CDATA[IO]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Hutch_Valves.PC5K4_KBO_VWC_01.i_xClsLS</Name>
+					<Name>GVL_Hutch_Valves.PC5K4_VWC_01.i_xClsLS</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1122,17 +1143,6 @@
 				</Var>
 				<Var>
 					<Name>GVL_Hutch_Valves.MR5K4_KBO_VWC_01.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Valves.TM2K4_KBO_VWC_01.i_xOpnLS</Name>
-					<Comment>
-						<![CDATA[IO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Valves.TM2K4_KBO_VWC_01.i_xClsLS</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1171,6 +1181,13 @@
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>PRG_Hutch_Beamline_Valves.LAMP_C2_GCC_01.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
 				<Var>
 					<Name>PMPS.fbArbiterIO.q_stRequestedBP</Name>
 					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
@@ -1612,7 +1629,7 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Hutch_Valves.PC5K4_KBO_VWC_01.q_xOPN_DO</Name>
+					<Name>GVL_Hutch_Valves.PC5K4_VWC_01.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1621,10 +1638,6 @@
 				</Var>
 				<Var>
 					<Name>GVL_Hutch_Valves.MR5K4_KBO_VWC_01.q_xOPN_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Valves.TM2K4_KBO_VWC_01.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1708,42 +1721,75 @@
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH1_VFV_02.q_iRawPosition" VarB="AO Outputs Channel 3^Analog output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH2_VFV_01.q_iRawPosition" VarB="AO Outputs Channel 4^Analog output" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^E5 (EL1004)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^K4S2_01_E5 (EL1004)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR2K4_KBO_VWC_01.i_xClsLS" VarB="Channel 2^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR2K4_KBO_VWC_01.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR3K4_KBO_VWC_01.i_xClsLS" VarB="Channel 4^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR3K4_KBO_VWC_01.i_xOpnLS" VarB="Channel 3^Input" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^E6 (EL2004)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^K4S2_01_E6 (EL2004)">
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR2K4_KBO_VWC_01.q_xOPN_DO" VarB="Channel 1^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR3K4_KBO_VWC_01.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E1 (EL3174)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E1 (EL3174)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR2K4_KBO_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 4^Value" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E19 (EL1004)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E11 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xAtSpd" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xFaultNC" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xAtSpd" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xFaultNC" VarB="Channel 3^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E12 (EL2794)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.q_RunDO" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.q_xReset" VarB="Channel 2^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.q_RunDO" VarB="Channel 3^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.q_xReset" VarB="Channel 4^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E13 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xAtSpd" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xFaultNC" VarB="Channel 1^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E14 (EL2794)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.q_RunDO" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.q_xReset" VarB="Channel 2^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E15 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.IM4K4_PPM_PTM_01.i_xAtSpd" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.IM4K4_PPM_PTM_01.i_xFaultNC" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.LI1K4_IP1_PTM_01.i_xAtSpd" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.LI1K4_IP1_PTM_01.i_xFaultNC" VarB="Channel 3^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E16 (EL2794)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.IM4K4_PPM_PTM_01.q_RunDO" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.LI1K4_IP1_PTM_01.q_RunDO" VarB="Channel 2^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E19 (EL1004)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_01.i_xClsLS" VarB="Channel 2^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_01.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH2_VRC_01.i_xClsLS" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH2_VRC_01.i_xOpnLS" VarB="Channel 3^Input" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E2 (EL3174)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E2 (EL3174)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA1K4_IP1_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E20 (EL2004)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E20 (EL2004)">
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_01.q_xOPN_DO" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH2_VRC_01.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E5 (EL2624)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E5 (EL2624)">
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.q_xHV_DIS" VarB="Channel 4^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.q_xHV_DIS" VarB="Channel 2^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.q_xHV_DIS" VarB="Channel 3^Output" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E7 (EL1124)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E7 (EL1124)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xDisc_Active" VarB="Channel 4^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xHV_ON" VarB="Channel 3^Input" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E8 (EL1124)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E8 (EL1124)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xDisc_Active" VarB="Channel 4^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xHV_ON" VarB="Channel 3^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_xDisc_Active" VarB="Channel 2^Input" AutoLink="true"/>
@@ -1752,6 +1798,81 @@
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_ EP1 (EP4374-0002)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.TMO_ROUGH1_GPI_03.i_iPRESS_R" VarB="AI Inputs Channel 1^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH1_VFV_03.q_iRawPosition" VarB="AO Outputs Channel 3^Analog output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E1 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_02.i_xClsLS" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_02.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E11 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xFaultNC" VarB="Channel 1^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E12 (EL2004)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.q_PumpingStation" VarB="Channel 1^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E14 (EL2624)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.q_xHV_DIS" VarB="Channel 2^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.q_xHV_DIS" VarB="Channel 4^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.q_xHV_DIS" VarB="Channel 3^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.TM1K4_GCC_01.q_xHV_DIS" VarB="Channel 1^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E15 (EL3174)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA2K4_IP1_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 4^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.TM1K4_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E18 (EL3174)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR4K4_KBO_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E2 (EL2004)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_02.q_xOPN_DO" VarB="Channel 1^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E20 (EL1124)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xDisc_Active" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xHV_ON" VarB="Channel 3^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.TM1K4_GCC_01.i_xDisc_Active" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.TM1K4_GCC_01.i_xHV_ON" VarB="Channel 1^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E21 (EL1124)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xDisc_Active" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xHV_ON" VarB="Channel 3^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xDisc_Active" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xHV_ON" VarB="Channel 1^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E3 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.LI3K4_IP1_VWC_01.i_xClsLS" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.LI3K4_IP1_VWC_01.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.PC5K4_VWC_01.i_xClsLS" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.PC5K4_VWC_01.i_xOpnLS" VarB="Channel 3^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E4 (EL2004)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.LI3K4_IP1_VWC_01.q_xOPN_DO" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.PC5K4_VWC_01.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E6 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xAtSpd" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xFaultNC" VarB="Channel 3^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xRemote" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.TM1K4_PTM_01.i_xAtSpd" VarB="Channel 4^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E7 (EL2004)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.q_PumpingStation" VarB="Channel 3^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.q_RunDO" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.q_xRemote" VarB="Channel 2^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.TM1K4_PTM_01.q_RunDO" VarB="Channel 4^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E8 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xAtSpd" VarB="Channel 3^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xRemote" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.TM1K4_PTM_01.i_xFaultNC" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.TM1K4_PTM_01.i_xRemote" VarB="Channel 1^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E9 (EL2004)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.q_RunDO" VarB="Channel 3^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.q_xRemote" VarB="Channel 4^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.TM1K4_PTM_01.q_PumpingStation" VarB="Channel 2^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.TM1K4_PTM_01.q_xRemote" VarB="Channel 1^Output" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_WALL_WEST_EP01 (EP4374-0002)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.TMO_ROUGH1_GPI_01.i_iPRESS_R" VarB="AI Inputs Channel 1^Value" AutoLink="true"/>
