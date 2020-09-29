@@ -295,6 +295,9 @@
 				<Text><![CDATA[Opn_Timeout]]></Text>
 				<Enum>9</Enum>
 			</EnumInfo>
+			<Hides>
+				<Hide GUID="{7DC879C1-F57C-44EC-A5E0-917A2B10EA1C}"/>
+			</Hides>
 		</DataType>
 	</DataTypes>
 	<Project GUID="{C04468FE-B693-405F-937F-CD9A1BA9E427}" Name="plc_tmo_hutch_vac" PrjFilePath="..\..\plc_tmo_hutch_vac\plc_tmo_hutch_vac.plcproj" TmcFilePath="..\..\plc_tmo_hutch_vac\plc_tmo_hutch_vac.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e">
@@ -314,6 +317,31 @@
 					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
 				</Var>
 				<Var>
+					<Name>GVL_FEE_Device.USVacOk_HI</Name>
+					<Comment><![CDATA[ upstream vacuum <10E-6, for mirror VGC interlock ]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_FEE_Device.USVacOk_LO</Name>
+					<Comment><![CDATA[ upstream vacuum <10E-4, for Ion pump interlock ]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_Hutch_Beamline_Valves.LAMP_C2_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_Hutch_Beamline_Valves.LAMP_C2_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_Hutch_Beamline_Valves.LAMP_C2_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>PMPS.fbArbiterIO.i_stCurrentBP</Name>
 					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
 				</Var>
@@ -324,16 +352,6 @@
 				<Var>
 					<Name>PMPS.fbArbiterIO.xTxPDO_state</Name>
 					<Type>BIT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_FEE_Device.USVacOk_HI</Name>
-					<Comment><![CDATA[ upstream vacuum <10E-6, for mirror VGC interlock ]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_FEE_Device.USVacOk_LO</Name>
-					<Comment><![CDATA[ upstream vacuum <10E-4, for Ion pump interlock ]]></Comment>
-					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>GVL_FEE_Device.TV1K4_VGC_01.i_xOpnLS</Name>
@@ -486,6 +504,161 @@
 					<Name>GVL_FEE_Device.PC4K4_XTES_PIP_01.i_xSP_DI</Name>
 					<Comment><![CDATA[ NO contact //function of relay set on the QPC to HV output state]]></Comment>
 					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.LI2K4_IP1_GFS_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ Controls and I/Os]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xHV_ON</Name>
+					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xDisc_Active</Name>
+					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_02.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_03.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TMO_ROUGH2_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TMO_ROUGH2_GPI_02.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>GVL_Hutch_Pumps.MR2K4_KBO_PIP_01.i_iPRESS</Name>
@@ -670,12 +843,12 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Hutch_Valves.PC5K4_KBO_VWC_01.i_xOpnLS</Name>
+					<Name>GVL_Hutch_Valves.PC5K4_VWC_01.i_xOpnLS</Name>
 					<Comment><![CDATA[IO]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Hutch_Valves.PC5K4_KBO_VWC_01.i_xClsLS</Name>
+					<Name>GVL_Hutch_Valves.PC5K4_VWC_01.i_xClsLS</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -694,15 +867,6 @@
 				</Var>
 				<Var>
 					<Name>GVL_Hutch_Valves.MR5K4_KBO_VWC_01.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Valves.TM2K4_KBO_VWC_01.i_xOpnLS</Name>
-					<Comment><![CDATA[IO]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Valves.TM2K4_KBO_VWC_01.i_xClsLS</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -788,164 +952,14 @@
 					<Comment><![CDATA[Interface]]></Comment>
 					<Type GUID="{B79D91A1-846E-4A33-B61F-88E66D7D9241}" Namespace="LCLS_Vacuum">E_VGC</Type>
 				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.LI2K4_IP1_GFS_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ Controls and I/Os]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xHV_ON</Name>
-					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xDisc_Active</Name>
-					<Comment><![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_02.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TMO_ROUGH1_GPI_03.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TMO_ROUGH2_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TMO_ROUGH2_GPI_02.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>PRG_Hutch_Beamline_Valves.LAMP_C2_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
 				<Var>
 					<Name>PMPS.fbArbiterIO.q_stRequestedBP</Name>
 					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
@@ -1005,6 +1019,46 @@
 				<Var>
 					<Name>GVL_FEE_Device.PC4K4_XTES_PIP_01.q_xHVEna_DO</Name>
 					<Comment><![CDATA[ Enable High Voltage when TRUE]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.LI2K4_IP1_GFS_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Disable Gauge High Voltage when True // 'TcLinkTo' (EL2794) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.q_xHV_DIS</Name>
+					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1153,7 +1207,7 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Hutch_Valves.PC5K4_KBO_VWC_01.q_xOPN_DO</Name>
+					<Name>GVL_Hutch_Valves.PC5K4_VWC_01.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1162,10 +1216,6 @@
 				</Var>
 				<Var>
 					<Name>GVL_Hutch_Valves.MR5K4_KBO_VWC_01.q_xOPN_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Valves.TM2K4_KBO_VWC_01.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1274,46 +1324,6 @@
 					<Name>GVL_PMPS.g_FastFaultOutput2.q_xFastFaultOut</Name>
 					<Type>BOOL</Type>
 				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.LI2K4_IP1_GFS_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Disable Gauge High Voltage when True // 'TcLinkTo' (EL2794) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.q_xHV_DIS</Name>
-					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="8">
 				<Name>PlcTask Retains</Name>
@@ -1330,50 +1340,6 @@
 					<InOut>7</InOut>
 				</Var>
 			</Vars>
-			<UnrestoredVarLinks ImportTime="2020-09-25T16:23:41">
-				<OwnerA Name="InputDst" Prefix="TIPC^plc_tmo_hutch_vac^plc_tmo_hutch_vac Instance" Type="1">
-					<OwnerB Name="TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance">
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.i_eVFS_State" TypeA="LCLS_Vacuum.E_VGC" InOutA="0" GuidA="{B79D91A1-846E-4A33-B61F-88E66D7D9241}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_eVFS_State" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.i_xMPS_OK" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xMPS_OK" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.i_xTrigger" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xTrigger" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.i_xVAC_FAULT_OK" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xVAC_FAULT_OK" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.i_xVFS_Closed" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xVFS_Closed" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.i_xVFS_Open" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xVFS_Open" AutoLink="true" RestoreInfo="ANotFound"/>
-					</OwnerB>
-				</OwnerA>
-				<OwnerA Name="OutputSrc" Prefix="TIPC^plc_tmo_hutch_vac^plc_tmo_hutch_vac Instance" Type="2">
-					<OwnerB Name="TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance">
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.q_xCLS_SW" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xCLS_SW" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.q_xOPN_SW" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xOPN_SW" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.q_xOverrideMode" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xOverrideMode" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.q_xOverrideOpen" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xOverrideOpen" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.q_xPRESS_OK" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xPress_OK" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.fb_TV2K0_VFS_1_Interface.q_xVAC_FAULT_Reset" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xVAC_FAULT_Reset" AutoLink="true" RestoreInfo="ANotFound"/>
-					</OwnerB>
-				</OwnerA>
-			</UnrestoredVarLinks>
-			<UnrestoredVarLinks ImportTime="2020-09-25T17:11:48">
-				<OwnerA Name="InputDst" Prefix="TIPC^plc_tmo_hutch_vac^plc_tmo_hutch_vac Instance" Type="1">
-					<OwnerB Name="TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance">
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.i_eVFS_State" TypeA="LCLS_Vacuum.E_VGC" InOutA="0" GuidA="{B79D91A1-846E-4A33-B61F-88E66D7D9241}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_eVFS_State" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.i_xMPS_OK" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xMPS_OK" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.i_xTrigger" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xTrigger" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.i_xVAC_FAULT_OK" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xVAC_FAULT_OK" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.i_xVFS_Closed" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xVFS_Closed" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.i_xVFS_Open" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Outputs^GVL_FS_Devices.fb_TV1K4_VFS_1.q_xVFS_Open" AutoLink="true" RestoreInfo="ANotFound"/>
-					</OwnerB>
-				</OwnerA>
-				<OwnerA Name="OutputSrc" Prefix="TIPC^plc_tmo_hutch_vac^plc_tmo_hutch_vac Instance" Type="2">
-					<OwnerB Name="TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance">
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.q_xCLS_SW" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xCLS_SW" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.q_xOPN_SW" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xOPN_SW" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.q_xOverrideMode" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xOverrideMode" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.q_xOverrideOpen" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xOverrideOpen" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.q_xPRESS_OK" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xPress_OK" AutoLink="true" RestoreInfo="ANotFound"/>
-						<Link VarA="GVL_Hutch_Valves.TV1K4_VFS_1_Interface.q_xVAC_FAULT_Reset" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="PlcTask Inputs^GVL_FS_Devices.fb_TV1K4_VFS_1.i_xVAC_FAULT_Reset" AutoLink="true" RestoreInfo="ANotFound"/>
-					</OwnerB>
-				</OwnerA>
-			</UnrestoredVarLinks>
 			<TaskPouOids>
 				<TaskPouOid Prio="20" OTCID="#x08502001"/>
 			</TaskPouOids>
@@ -1387,45 +1353,75 @@
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH1_VFV_02.q_iRawPosition" VarB="AO Outputs Channel 3^Analog output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH2_VFV_01.q_iRawPosition" VarB="AO Outputs Channel 4^Analog output" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^E5 (EL1004)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^K4S2_01_E5 (EL1004)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR2K4_KBO_VWC_01.i_xClsLS" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR2K4_KBO_VWC_01.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR3K4_KBO_VWC_01.i_xClsLS" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR3K4_KBO_VWC_01.i_xOpnLS" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^E6 (EL2004)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^K4S2_01_E6 (EL2004)">
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR2K4_KBO_VWC_01.q_xOPN_DO" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR3K4_KBO_VWC_01.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E1 (EL3174)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E1 (EL3174)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR2K4_KBO_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 4^Value" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E19 (EL1004)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E11 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xAtSpd" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xFaultNC" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xAtSpd" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xFaultNC" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E12 (EL2794)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.q_RunDO" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.q_xReset" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.q_RunDO" VarB="Channel 3^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.q_xReset" VarB="Channel 4^Output" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E13 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xAtSpd" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xFaultNC" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E14 (EL2794)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.q_RunDO" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.q_xReset" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E15 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.IM4K4_PPM_PTM_01.i_xAtSpd" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.IM4K4_PPM_PTM_01.i_xFaultNC" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.LI1K4_IP1_PTM_01.i_xAtSpd" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.LI1K4_IP1_PTM_01.i_xFaultNC" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E16 (EL2794)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.IM4K4_PPM_PTM_01.q_RunDO" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.LI1K4_IP1_PTM_01.q_RunDO" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E19 (EL1004)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_01.i_xClsLS" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_01.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH2_VRC_01.i_xClsLS" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH2_VRC_01.i_xOpnLS" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E2 (EL3174)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E2 (EL3174)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA1K4_IP1_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E20 (EL2004)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E20 (EL2004)">
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_01.q_xOPN_DO" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH2_VRC_01.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E5 (EL2624)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E5 (EL2624)">
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.q_xHV_DIS" VarB="Channel 4^Output" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.q_xHV_DIS" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.q_xHV_DIS" VarB="Channel 3^Output" AutoLink="true" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E7 (EL1124)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E7 (EL1124)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xDisc_Active" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.i_xHV_ON" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^E8 (EL1124)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_02 (EK1100)^K4S2_02_E8 (EL1124)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xDisc_Active" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.i_xHV_ON" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.i_xDisc_Active" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
@@ -1435,10 +1431,111 @@
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.TMO_ROUGH1_GPI_03.i_iPRESS_R" VarB="AI Inputs Channel 1^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH1_VFV_03.q_iRawPosition" VarB="AO Outputs Channel 3^Analog output" AutoLink="true"/>
 			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E1 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_02.i_xClsLS" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_02.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E11 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xFaultNC" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E12 (EL2004)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.q_PumpingStation" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E14 (EL2624)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.q_xHV_DIS" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.q_xHV_DIS" VarB="Channel 4^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.q_xHV_DIS" VarB="Channel 3^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Gauges.TM1K4_GCC_01.q_xHV_DIS" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E15 (EL3174)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA2K4_IP1_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 4^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.TM1K4_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E18 (EL3174)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR4K4_KBO_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E2 (EL2004)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH1_VRC_02.q_xOPN_DO" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E20 (EL1124)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xDisc_Active" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.i_xHV_ON" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.TM1K4_GCC_01.i_xDisc_Active" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.TM1K4_GCC_01.i_xHV_ON" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E21 (EL1124)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xDisc_Active" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xHV_ON" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xDisc_Active" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xHV_ON" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E3 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.LI3K4_IP1_VWC_01.i_xClsLS" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.LI3K4_IP1_VWC_01.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.PC5K4_VWC_01.i_xClsLS" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.PC5K4_VWC_01.i_xOpnLS" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E4 (EL2004)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.LI3K4_IP1_VWC_01.q_xOPN_DO" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.PC5K4_VWC_01.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E6 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xAtSpd" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xFaultNC" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xRemote" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.TM1K4_PTM_01.i_xAtSpd" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E7 (EL2004)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.q_PumpingStation" VarB="Channel 3^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.q_RunDO" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.q_xRemote" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.TM1K4_PTM_01.q_RunDO" VarB="Channel 4^Output" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E8 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xAtSpd" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xRemote" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.TM1K4_PTM_01.i_xFaultNC" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.TM1K4_PTM_01.i_xRemote" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E9 (EL2004)">
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.q_RunDO" VarB="Channel 3^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.q_xRemote" VarB="Channel 4^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.TM1K4_PTM_01.q_PumpingStation" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Pumps.TM1K4_PTM_01.q_xRemote" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
+			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_WALL_WEST_EP01 (EP4374-0002)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.TMO_ROUGH1_GPI_01.i_iPRESS_R" VarB="AI Inputs Channel 1^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.TMO_ROUGH2_GPI_01.i_iPRESS_R" VarB="AI Inputs Channel 2^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.TMO_ROUGH1_VFV_01.q_iRawPosition" VarB="AO Outputs Channel 3^Analog output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance">
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.i_eVFS_State" VarB="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_eVFS_State" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.i_xMPS_OK" VarB="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xMPS_OK" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.i_xTrigger" VarB="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xTrigger" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.i_xVAC_FAULT_OK" VarB="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xVAC_FAULT_OK" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.i_xVFS_Closed" VarB="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xVFS_Closed" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.i_xVFS_Open" VarB="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xVFS_Open" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.i_eVFS_State" VarB="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_eVFS_State" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.i_xMPS_OK" VarB="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xMPS_OK" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.i_xTrigger" VarB="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xTrigger" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.i_xVAC_FAULT_OK" VarB="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xVAC_FAULT_OK" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.i_xVFS_Closed" VarB="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xVFS_Closed" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.i_xVFS_Open" VarB="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xVFS_Open" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.q_xCLS_SW" VarB="PlcTask Inputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.i_xCLS_SW" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.q_xOPN_SW" VarB="PlcTask Inputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.i_xOPN_SW" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.q_xOverrideMode" VarB="PlcTask Inputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.i_xOverrideMode" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.q_xOverrideOpen" VarB="PlcTask Inputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.i_xOverrideOpen" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.q_xPRESS_OK" VarB="PlcTask Inputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.i_xPress_OK" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR3K4_KBO_VFS_1_Interface.q_xVAC_FAULT_Reset" VarB="PlcTask Inputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.i_xVAC_FAULT_Reset" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.q_xCLS_SW" VarB="PlcTask Inputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.i_xCLS_SW" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.q_xOPN_SW" VarB="PlcTask Inputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.i_xOPN_SW" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.q_xOverrideMode" VarB="PlcTask Inputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.i_xOverrideMode" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.q_xOverrideOpen" VarB="PlcTask Inputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.i_xOverrideOpen" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.q_xPRESS_OK" VarB="PlcTask Inputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.i_xPress_OK" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.MR4K4_KBO_VFS_1_Interface.q_xVAC_FAULT_Reset" VarB="PlcTask Inputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.i_xVAC_FAULT_Reset" AutoLink="true"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>

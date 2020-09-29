@@ -1,51 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="GVL_Hutch_Gauges" Id="{def8edf1-144c-4ec2-bb9e-c76eb49492a9}">
     <Declaration><![CDATA[//{attribute 'qualified_only'}
 VAR_GLOBAL
 (* Pirani & Cold Cathode*)
 
 	{attribute 'pytmc' :=' pv: MR2K4:KBO:GPI:01 '}
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E1 (EL3174)^AI Standard Channel 2^Value '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E1 (EL3174)^AI Standard Channel 2^Value '}
 	MR2K4_KBO_GPI_01 : FB_MKS275;
 	
-	{attribute 'pytmc' :=' pv: MR2K4:KBO:GCC:01 '}
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E1 (EL3174)^AI Standard Channel 3^Value;
-								 .i_xHV_ON	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E7 (EL1124)^Channel 3^Input;
-								 .i_xDisc_Active	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E7 (EL1124)^Channel 4^Input;								 
-								 .q_xHV_DIS		:= 	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E5 (EL2624)^Channel 2^Output	'}	
+	{attribute 'pytmc' :=' pv: TV1K4:GCC:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E1 (EL3174)^AI Standard Channel 3^Value;
+								 .i_xHV_ON	    :=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E7 (EL1124)^Channel 3^Input;
+								 .i_xDisc_Active:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E7 (EL1124)^Channel 4^Input;								 
+								 .q_xHV_DIS		:= 	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E5 (EL2624)^Channel 2^Output	'}	
 	MR2K4_KBO_GCC_01 : FB_MKS500;
 	
 	{attribute 'pytmc' :=' pv: PA1K4:IP1:GPI:01 '}
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E2 (EL3174)^AI Standard Channel 1^Value '}	
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E2 (EL3174)^AI Standard Channel 1^Value '}	
 	PA1K4_IP1_GPI_01 : FB_MKS275;
 	
 
 	{attribute 'pytmc' :=' pv: PA1K4:IP1:GCC:01 '}
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E1 (EL3174)^AI Standard Channel 4^Value;
-								 .i_xHV_ON	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E8 (EL1124)^Channel 1^Input;
-								 .i_xDisc_Active	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E8 (EL1124)^Channel 2^Input;								 
-								 .q_xHV_DIS		:= 	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E5 (EL2624)^Channel 3^Output	'}		
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E1 (EL3174)^AI Standard Channel 4^Value;
+								 .i_xHV_ON	    :=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E8 (EL1124)^Channel 1^Input;
+								 .i_xDisc_Active:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E8 (EL1124)^Channel 2^Input;								 
+								 .q_xHV_DIS		:= 	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E5 (EL2624)^Channel 3^Output	'}		
 	PA1K4_IP1_GCC_01 : FB_MKS500;
 	
 
 	{attribute 'pytmc' :=' pv: IM4K4:PPM:GCC:01 '}
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E2 (EL3174)^AI Standard Channel 2^Value;
-								 .i_xHV_ON	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E8 (EL1124)^Channel 3^Input;
-								 .i_xDisc_Active	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E8 (EL1124)^Channel 4^Input;								 
-								 .q_xHV_DIS		:= 	TIIB[TMO_K4S2_DRL_02 (EK1100)]^E5 (EL2624)^Channel 4^Output	'}			
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E2 (EL3174)^AI Standard Channel 2^Value;
+								 .i_xHV_ON	    :=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E8 (EL1124)^Channel 3^Input;
+								 .i_xDisc_Active:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E8 (EL1124)^Channel 4^Input;								 
+								 .q_xHV_DIS		:= 	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E5 (EL2624)^Channel 4^Output	'}			
 	IM4K4_PPM_GCC_01 : FB_MKS500;
 	
-	LI2K4_IP1_GFS_01 : FB_MKS422;
+
+    LI2K4_IP1_GFS_01 : FB_MKS422;
 	
+	
+	{attribute 'pytmc' :=' pv: TM4K4:GCC:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E15 (EL3174)^AI Standard Channel 1^Value;
+								 .i_xHV_ON	    :=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E20 (EL1124)^Channel 1^Input;
+								 .i_xDisc_Active:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E20 (EL1124)^Channel 2^Input;								 
+								 .q_xHV_DIS		:= 	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E14 (EL2624)^Channel 1^Output	'}		
 	TM1K4_GCC_01 : FB_MKS500;
 	
+	{attribute 'pytmc' :=' pv: IM5K4:PPM:GCC:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E15 (EL3174)^AI Standard Channel 2^Value;
+								 .i_xHV_ON	    :=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E20 (EL1124)^Channel 3^Input;
+								 .i_xDisc_Active:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E20 (EL1124)^Channel 4^Input;								 
+								 .q_xHV_DIS		:= 	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E14 (EL2624)^Channel 2^Output	'}		
 	IM5K4_PPM_GCC_01 : FB_MKS500;
 	
-	PA2K4_IP1_GPI_01 : FB_MKS275;
-	PA2K4_IP1_GCC_01 : FB_MKS500;
 	
+	{attribute 'pytmc' :=' pv: PA2K4:IP1:GPI:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E15 (EL3174)^AI Standard Channel 4^Value '}	
+	PA2K4_IP1_GPI_01 : FB_MKS275;
+	
+	{attribute 'pytmc' :=' pv: PA2K4:IP1:GCC:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E15 (EL3174)^AI Standard Channel 3^Value;
+								 .i_xHV_ON	    :=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E21 (EL1124)^Channel 1^Input;
+								 .i_xDisc_Active:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E21 (EL1124)^Channel 2^Input;								 
+								 .q_xHV_DIS		:= 	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E14 (EL2624)^Channel 3^Output	'}		
+	PA2K4_IP1_GCC_01 : FB_MKS500;
+
+
+	{attribute 'pytmc' :=' pv: MR4K4:KBO:GPI:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E18 (EL3174)^AI Standard Channel 1^Value '}		
 	MR4K4_KBO_GPI_01 : FB_MKS275;
+
+	{attribute 'pytmc' :=' pv: MR4K4:KBO:GCC:01 '}
+	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E18 (EL3174)^AI Standard Channel 2^Value;
+								 .i_xHV_ON	    :=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E21 (EL1124)^Channel 3^Input;
+								 .i_xDisc_Active:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E21 (EL1124)^Channel 4^Input;								 
+								 .q_xHV_DIS		:= 	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E14 (EL2624)^Channel 4^Output	'}			
 	MR4K4_KBO_GCC_01 : FB_MKS500;
 	
 	(* Roughing gauges *)
