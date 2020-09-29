@@ -63,6 +63,9 @@
 				<Text><![CDATA[Opn_Timeout]]></Text>
 				<Enum>9</Enum>
 			</EnumInfo>
+			<Hides>
+				<Hide GUID="{7DC879C1-F57C-44EC-A5E0-917A2B10EA1C}"/>
+			</Hides>
 		</DataType>
 	</DataTypes>
 	<Project ProjectGUID="{39788231-2958-4D23-A695-4EB713A80328}" TargetNetId="172.21.132.45.1.1" ShowHideConfigurations="#x306">
@@ -307,32 +310,29 @@
 		</Io>
 	</Project>
 	<Mappings>
-		<MappingInfo Identifier="{00000000-2041-0850-4020-500821000403}" Id="#x02030020"/>
+		<MappingInfo Identifier="{08502001-2041-0850-0020-500840205008}" Id="#x02030030" Watchdog="04000000280000000400000004000000"/>
+		<MappingInfo Identifier="{00000000-2041-0850-4020-500831000403}" Id="#x02030020"/>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
 		<OwnerA Name="TIPC^plc_tmo_hutch_vac_fs^plc_tmo_hutch_vac_fs Instance">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^E1_VFS (EL1004)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^K4S2_01_E1_VFS (EL1004)">
 				<Link VarA="PlcTask Inputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.i_xClsLS" VarB="Channel 1^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.i_xOpnLS" VarB="Channel 2^Input" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^E3_VFS (EL2202)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^K4S2_01_E3_VFS (EL2202)">
 				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xClose_A" VarB="Channel 1^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xClose_B" VarB="Channel 2^Output" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^E4_VFS (EL2202)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S2_DRL_01 (EK1100)^K4S2_01_E4_VFS (EL2202)">
 				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xClose_C" VarB="Channel 1^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S8_DRL_01 (EK1100)^EL1004_11_01">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S8_DRL_01 (EK1100)^K4S8_01_E1 (EL1004)">
 				<Link VarA="PlcTask Inputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.i_xClsLS" VarB="Channel 1^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.i_xOpnLS" VarB="Channel 2^Input" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S8_DRL_01 (EK1100)^EL2202_11_03">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S8_DRL_01 (EK1100)^K4S8_01_E3 (EL2202)">
 				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xClose_A" VarB="Channel 1^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xClose_B" VarB="Channel 2^Output" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S8_DRL_01 (EK1100)^EL2202_11_04">
-				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xClose_C" VarB="Channel 1^Output" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^GVL_FS_Devices.MR4K4_KBO_VFS_1.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>
