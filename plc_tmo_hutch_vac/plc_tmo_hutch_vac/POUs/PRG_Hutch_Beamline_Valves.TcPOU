@@ -4,6 +4,7 @@
     <Declaration><![CDATA[PROGRAM PRG_Hutch_Beamline_Valves
 VAR
 	LAMP_C2_GCC_01: FB_MKS500; // wrong. only need temporary before integrate with LAMP 
+	xAll_Turbo_isRunning : BOOL := False;
 	
 	xValveFault: BOOL := FALSE;
 END_VAR
@@ -12,7 +13,7 @@ END_VAR
       <ST><![CDATA[
 (* Beamline window valves use VGC function. Valves allow to open when both upstream and downstream gauges
     reading pressure below than setpoints and all turbo pumps are running and no faults *)
-	
+
 
 MR2K4_KBO_VWC_01(
 				i_stUSG := PC4K4_XTES_GCC_01.IG, 
@@ -20,8 +21,8 @@ MR2K4_KBO_VWC_01(
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := F_Turbos_isRunning, 
-				i_xOverrideMode := xSystemOverrideMode_FEE, 
+				i_xExt_OK := F_Turbos_isRunning(), 
+				i_xOverrideMode := xSystemOverrideMode_TMO, 
 				i_xReset := xReset_PMPS_FFO2,
 				io_fbFFHWO :=g_FastFaultOutput2,
                 fbArbiter := g_fbArbiter1);
@@ -33,8 +34,8 @@ MR3K4_KBO_VWC_01(
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := F_Turbos_isRunning, 
-				i_xOverrideMode := xSystemOverrideMode_FEE, 
+				i_xExt_OK := F_Turbos_isRunning (), 
+				i_xOverrideMode := xSystemOverrideMode_TMO, 
 				i_xReset := xReset_PMPS_FFO2,
 				io_fbFFHWO :=g_FastFaultOutput2,
                 fbArbiter := g_fbArbiter1);
@@ -45,20 +46,20 @@ LI3K4_IP1_VWC_01(
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := F_Turbos_isRunning, 
-				i_xOverrideMode := xSystemOverrideMode_FEE, 
+				i_xExt_OK := F_Turbos_isRunning (), 
+				i_xOverrideMode := xSystemOverrideMode_TMO,
 				i_xReset := xReset_PMPS_FFO2,
 				io_fbFFHWO :=g_FastFaultOutput2,
                 fbArbiter := g_fbArbiter1);
 
-PC5K4_KBO_VWC_01(
+PC5K4_VWC_01(
 				i_stUSG := IM5K4_PPM_GCC_01.IG, 
 				i_stDSG:= PA2K4_IP1_GCC_01.IG, 
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := F_Turbos_isRunning, 
-				i_xOverrideMode := xSystemOverrideMode_FEE, 
+				i_xExt_OK := F_Turbos_isRunning (), 
+				i_xOverrideMode := xSystemOverrideMode_TMO, 
 				i_xReset := xReset_PMPS_FFO2,
 				io_fbFFHWO :=g_FastFaultOutput2,
                 fbArbiter := g_fbArbiter1);
@@ -69,15 +70,15 @@ MR4K4_KBO_VWC_01(
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := F_Turbos_isRunning, 
-				i_xOverrideMode := xSystemOverrideMode_FEE, 
+				i_xExt_OK := F_Turbos_isRunning (), 
+				i_xOverrideMode := xSystemOverrideMode_TMO, 
 				i_xReset := xReset_PMPS_FFO2,
 				io_fbFFHWO :=g_FastFaultOutput2,
                 fbArbiter := g_fbArbiter1);
 	
 (*  if any beamline valve closed due to interlock failure, we close all beamline valve, and send out failure state *)
 (*  MR4K4 and MR5K4 valves are missing since they are not installed yet *)
-
+(*
 IF ( NOT MR2K4_KBO_VWC_01.iq_stValve.xOPN_OK AND NOT MR2K4_KBO_VWC_01.iq_stValve.i_xOpnLS ) OR 
    ( NOT MR3K4_KBO_VWC_01.iq_stValve.xOPN_OK AND NOT MR3K4_KBO_VWC_01.iq_stValve.i_xOpnLS ) OR 
    ( NOT LI3K4_IP1_VWC_01.iq_stValve.xOPN_OK AND NOT LI3K4_IP1_VWC_01.iq_stValve.i_xOpnLS ) OR 
@@ -94,9 +95,15 @@ ELSE
 	xValveFault := FALSE;
 END_IF
 
-
+*)
 							   
 ]]></ST>
     </Implementation>
+    <LineIds Name="PRG_Hutch_Beamline_Valves">
+      <LineId Id="3" Count="74" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="79" Count="10" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
