@@ -57,19 +57,19 @@ VAR_GLOBAL
 	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E19 (EL1004)^Channel 1^Input;
 								 .i_xClsLS	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E19 (EL1004)^Channel 2^Input;
 								.q_xOPN_DO	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E20 (EL2004)^Channel 1^Output'}
-	TMO_ROUGH1_VRC_01 : FB_VRC;
+	TMO_ROUGH1_VRC_01 : FB_VGC_2S;
 
 	{attribute 'pytmc' :=' pv: TMO:ROUGH1:VRC:02 '}
 	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E1 (EL1004)^Channel 1^Input;
 								 .i_xClsLS	:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E1 (EL1004)^Channel 2^Input;
 								.q_xOPN_DO	:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E2 (EL2004)^Channel 1^Output'}
-	TMO_ROUGH1_VRC_02 : FB_VRC;
+	TMO_ROUGH1_VRC_02 : FB_VGC_2S;
 	
 	{attribute 'pytmc' :=' pv: TMO:ROUGH2:VRC:01 '}
 	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E19 (EL1004)^Channel 3^Input;
 								 .i_xClsLS	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E19 (EL1004)^Channel 4^Input;
 								.q_xOPN_DO	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E20 (EL2004)^Channel 2^Output'}
-	TMO_ROUGH2_VRC_01 : FB_VRC;
+	TMO_ROUGH2_VRC_01 : FB_VGC_2S;
 
 (* MKS248 with MKS1249 solenoid driver *)
 
