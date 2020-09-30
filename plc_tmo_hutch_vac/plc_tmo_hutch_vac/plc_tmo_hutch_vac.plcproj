@@ -36,15 +36,6 @@
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\DIAGNOSTICS.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\F_TMO_RoughVRC_ILK.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\F_Turbos_isRunning.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\F_Turbo_Protection_ILK.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -111,7 +102,7 @@
       <Resolution>LCLS Vacuum, 0.0.0 (SLAC - LCLS)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="LCLSVacuumSerialDriverLib">
-      <Resolution>LCLSVacuumSerialDriverLib, * (SLAC - LCLS)</Resolution>
+      <Resolution>LCLSVacuumSerialDriverLib, 0.0.0 (SLAC - LCLS)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="PMPS">
       <Resolution>PMPS, * (SLAC - LCLS)</Resolution>

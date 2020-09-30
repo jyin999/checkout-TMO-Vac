@@ -10,6 +10,12 @@ VAR_GLOBAL
 	
 	{attribute 'pytmc' := 'pv: TMO:NEH:VAC:OVRDON'}
 	xSystemOverrideMode_TMO	: BOOL := FALSE; (* Global system override for the TMO hutch Vacuum System *)
+	
+	{attribute 'pytmc' := 'pv: TMO:NEH:TURBO:FAULT'}
+	xTurboFault: BOOL := FALSE; (* True if any hutch turbo is not at speed or fault *)	
+	
+	{attribute 'pytmc' := 'pv: TMO:NEH:VALVE:FAULT'}
+	xValveFault: BOOL := FALSE; (* True if any hutch turbo is not at speed or fault *)	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
