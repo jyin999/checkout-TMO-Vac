@@ -36,13 +36,39 @@ VAR RETAIN
 	TM1K4_PTM_01_xExtIlkOK: BOOL := False;
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(* Roughing Valves *)
-(* Allow to open when both interlock gauges reading below than setpoint, both SP are 1E-3 Torr.  
-   When chamber is vented, bypass to open valve to pump down.*)
+      <ST><![CDATA[
+(* Roughing Valves *)
 
-//xRough1Vrc01_OpenOK := TRUE;
-//xRough1Vrc01OpenOK := F_TMO_RoughVRC_ILK( i_stISG := TMO_ROUGH1_GPI_02.PG, i_stBSG := TMO_ROUGH1_GPI_01.PG )
-//TMO_ROUGH1_VRC_01(i_xExtILK_OK := xRough1Vrc01_OpenOK,i_xOverrideMode := xSystemOverrideMode_TMO );
+(* All three roughing valves permit to open when both side reading pressure below than setpoint, 1E-3 for both sides.
+   When chamber is vented, bypass to open valve to pump down. 
+   FB_VGC_2S is used for VRC controls.
+   
+   For TMO_ROUGH1_VRC_01 & TMO_ROUGH1_VRC_02, additional interlock is implemented using i_xExt_OK input of VGC function:
+   If pressure difference between TMO_ROUGH1_GPI_02 and TMO_ROUGH1_GPI_03 is greater than 20 Torr, 
+   only one of them permit to open.
+   
+*)
+
+
+(* Check the pressure difference between TMO_ROUGH1_GPI_02 and TMO_ROUGH1_GPI_03 *) 
+
+(*
+
+rTolerance := 20;
+xDifPressureOK := TMO_ROUGH1_GPI_02.PG.rPRESS <= (TMO_ROUGH1_GPI_03.PG.rPRESS + rTolerance ) OR 
+				  TMO_ROUGH1_GPI_03.PG.rPRESS <= (TMO_ROUGH1_GPI_02.PG.rPRESS + rTolerance ) AND
+				  TMO_ROUGH1_GPI_02.PG.xPRESS_OK AND TMO_ROUGH1_GPI_03.PG.xPRESS_OK;
+				  
+(* Set external interlock OK TRUE, when xDifPressureOK or TMO_ROUGH1_VRC_02 is closed *)				  
+TMO_ROUGH1_VRC_01_xExt_OK := xDifPressureOK OR TMO_ROUGH1_VRC_02.iq_stValve.i_xClsLS; 
+TMO_ROUGH1_VRC_02_xExt_OK := xDifPressureOK OR TMO_ROUGH1_VRC_01.iq_stValve.i_xClsLS; 
+
+
+*)
+
+
+
+
 
 TMO_ROUGH1_VRC_01(
 				i_stUSG := TMO_ROUGH1_GPI_02.PG, 
@@ -58,10 +84,6 @@ TMO_ROUGH1_VRC_01(
 );
 
 
-//xRough1Vrc02_OpenOK := True;
-//xRough1Vrc02_OpenOK := F_TMO_RoughVRC_ILK( i_stISG := TMO_ROUGH1_GPI_03.PG, i_stBSG := TMO_ROUGH1_GPI_01.PG );
-//TMO_ROUGH1_VRC_02(i_xExtILK_OK := xRough1Vrc02_OpenOK,i_xOverrideMode := xSystemOverrideMode_TMO );
-
 TMO_ROUGH1_VRC_02(
 				i_stUSG := TMO_ROUGH1_GPI_03.PG, 
 				i_stDSG:= TMO_ROUGH1_GPI_01.PG, 
@@ -74,9 +96,6 @@ TMO_ROUGH1_VRC_02(
 				io_fbFFHWO :=dummy_FFFO,
                 fbArbiter := dummy_fbArbiter1);
 
-//xRough2Vrc01_OpenOK := TRUE;
-//xRough2Vrc01_OpenOK := F_TMO_RoughVRC_ILK( i_stISG := TMO_ROUGH2_GPI_02.PG, i_stBSG := TMO_ROUGH2_GPI_01.PG );
-//TMO_ROUGH2_VRC_01(i_xExtILK_OK := xRough2Vrc01_OpenOK,i_xOverrideMode := xSystemOverrideMode_TMO );
 
 TMO_ROUGH2_VRC_01(
 				i_stUSG := TMO_ROUGH2_GPI_02.PG, 
@@ -163,21 +182,21 @@ LI1K4_IP1_PTM_01(i_xExtIlkOK := LI1K4_IP1_PTM_01_xExtIlkOK, iq_stPTM => );
 (* Granite 2 K4S6 *)
 
 LI3K4_IP1_OUT_PTM_01_xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := LI3K4_IP1_OUT_PTM_01.iq_stPTM, 
-			i_stISG := IM5K4_PPM_GCC_01.IG, 
+			i_stISG := PA2K4_IP1_GPI_01.PG, 
 			i_stBSG := TMO_ROUGH1_GPI_03.PG, 
 			iq_stValve := TMO_ROUGH1_VRC_02.iq_stValve)	;
 
-LI3K4_IP1_OUT_PTM_01(i_xExtIlkOK := TRUE, iq_stPTM => );
+LI3K4_IP1_OUT_PTM_01(i_xExtIlkOK := LI3K4_IP1_OUT_PTM_01_xExtIlkOK, iq_stPTM => );
 
 TM1K4_PTM_01_xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := TM1K4_PTM_01.iq_stPTM, 
-			i_stISG := IM5K4_PPM_GCC_01.IG, 
+			i_stISG := PA2K4_IP1_GPI_01.PG, 
 			i_stBSG := TMO_ROUGH1_GPI_03.PG, 
 			iq_stValve := TMO_ROUGH1_VRC_02.iq_stValve)	;
 
 TM1K4_PTM_01(i_xExtIlkOK := TM1K4_PTM_01_xExtIlkOK, iq_stPTM => );
 
 IM5K4_PPM_PTM_01_xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := IM5K4_PPM_PTM_01.iq_stPTM, 
-			i_stISG := IM5K4_PPM_GCC_01.IG, 
+			i_stISG := PA2K4_IP1_GPI_01.PG, 
 			i_stBSG := TMO_ROUGH1_GPI_03.PG, 
 			iq_stValve := TMO_ROUGH1_VRC_02.iq_stValve)	;
 			
@@ -187,26 +206,18 @@ IM5K4_PPM_PTM_01(i_xExtIlkOK := IM5K4_PPM_PTM_01_xExtIlkOK, iq_stPTM => );
 ]]></ST>
     </Implementation>
     <LineIds Name="PRG_Roughing_Pumps">
-      <LineId Id="24" Count="0" />
-      <LineId Id="94" Count="2" />
-      <LineId Id="17" Count="1" />
-      <LineId Id="3" Count="0" />
+      <LineId Id="308" Count="0" />
+      <LineId Id="314" Count="27" />
+      <LineId Id="309" Count="3" />
       <LineId Id="81" Count="8" />
       <LineId Id="129" Count="1" />
       <LineId Id="98" Count="0" />
       <LineId Id="80" Count="0" />
       <LineId Id="79" Count="0" />
-      <LineId Id="21" Count="0" />
-      <LineId Id="67" Count="0" />
-      <LineId Id="20" Count="0" />
-      <LineId Id="11" Count="0" />
       <LineId Id="93" Count="0" />
       <LineId Id="99" Count="7" />
       <LineId Id="125" Count="1" />
       <LineId Id="92" Count="0" />
-      <LineId Id="70" Count="0" />
-      <LineId Id="23" Count="0" />
-      <LineId Id="22" Count="0" />
       <LineId Id="9" Count="0" />
       <LineId Id="111" Count="8" />
       <LineId Id="127" Count="1" />

@@ -46,7 +46,7 @@ END_VAR
 
 
 	IM5K4_PPM_GCC_01.M_SetBits(30518);	
-	IM5K4_PPM_GCC_01(PG:=TMO_ROUGH1_GPI_03.PG , IG=> );
+	IM5K4_PPM_GCC_01(PG:=PA2K4_IP1_GPI_01.PG , IG=> );
 	
 	PA2K4_IP1_GPI_01.M_SetBits(30518);
 	PA2K4_IP1_GPI_01();
@@ -106,7 +106,9 @@ END_VAR
       <LineId Id="58" Count="0" />
       <LineId Id="28" Count="0" />
       <LineId Id="56" Count="1" />
-      <LineId Id="29" Count="3" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="32" Count="0" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>
