@@ -5,15 +5,48 @@
 VAR
 	LAMP_C2_GCC_01: FB_MKS500; // wrong. only need temporary before integrate with LAMP 
 	xAll_Turbo_isRunning : BOOL := False;
-	
-	xValveFault: BOOL := FALSE;
+	xTurbos_are_Atspd : BOOL := False;
+	xValves_are_OPN_OK : BOOL := False;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
 (* Beamline window valves use VGC function. Valves allow to open when both upstream and downstream gauges
-    reading pressure below than setpoints and all turbo pumps are running and no faults *)
+    reading pressure below than setpoints,  all turbo pumps are running and no faults, and all beamline valves
+    in hutch are OPN_OK*)
 
+(* check turbo pump status	*)
+xTurbos_are_Atspd := ( PA1K4_IP1_PTM_01.iq_stPTM.i_xAtSpd AND NOT PA1K4_IP1_PTM_01.iq_stPTM.i_xFault ) AND 
+                        ( PA1K4_IP1_PTM_02.iq_stPTM.i_xAtSpd AND NOT PA1K4_IP1_PTM_02.iq_stPTM.i_xFault ) AND
+						( PA1K4_IP1_PTM_03.iq_stPTM.i_xAtSpd AND NOT PA1K4_IP1_PTM_03.iq_stPTM.i_xFault ) AND
+						( IM4K4_PPM_PTM_01.iq_stPTM.i_xAtSpd AND NOT IM4K4_PPM_PTM_01.iq_stPTM.i_xFault ) AND
+						( LI1K4_IP1_PTM_01.iq_stPTM.i_xAtSpd AND NOT LI1K4_IP1_PTM_01.iq_stPTM.i_xFault ) AND
+						( LI3K4_IP1_OUT_PTM_01.iq_stPTM.i_xAtSpd AND NOT LI3K4_IP1_OUT_PTM_01.iq_stPTM.i_xFault ) AND
+						( TM1K4_PTM_01.iq_stPTM.i_xAtSpd AND NOT TM1K4_PTM_01.iq_stPTM.i_xFault ) AND
+						( IM5K4_PPM_PTM_01.iq_stPTM.i_xAtSpd AND NOT IM5K4_PPM_PTM_01.iq_stPTM.i_xFault ) ;	
+
+(*set xTurboFault to True, if not all turbo are Atspd*)
+IF NOT xTurbos_are_Atspd Then
+	xTurboFault := TRUE;
+ElSE
+   xTurboFault := False;	
+END_IF
+						
+
+(* check beamline valve OPEN permit *)	
+xValves_are_OPN_OK :=  MR2K4_KBO_VWC_01.iq_stValve.xOPN_OK AND MR3K4_KBO_VWC_01.iq_stValve.xOPN_OK AND
+                       LI3K4_IP1_VWC_01.iq_stValve.xOPN_OK AND PC5K4_VWC_01.iq_stValve.xOPN_OK ;  
+
+(*set xValveFault to True, if not all beamline valves are OPN_OK*)
+IF NOT xValves_are_OPN_OK Then
+	xValveFault := TRUE;
+ElSE
+   xValveFault := False;	
+END_IF
+					   
+					   
+					 
 
 MR2K4_KBO_VWC_01(
 				i_stUSG := PC4K4_XTES_GCC_01.IG, 
@@ -21,11 +54,13 @@ MR2K4_KBO_VWC_01(
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := F_Turbos_isRunning(), 
+				i_xExt_OK := xTurbos_are_Atspd AND xValves_are_OPN_OK, 
 				i_xOverrideMode := xSystemOverrideMode_TMO, 
 				i_xReset := xReset_PMPS_FFO2,
 				io_fbFFHWO :=g_FastFaultOutput2,
-                fbArbiter := g_fbArbiter1);
+                fbArbiter := g_fbArbiter1,
+				
+);
 
 
 MR3K4_KBO_VWC_01(
@@ -34,7 +69,7 @@ MR3K4_KBO_VWC_01(
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := F_Turbos_isRunning (), 
+				i_xExt_OK := xTurbos_are_Atspd AND xValves_are_OPN_OK, 
 				i_xOverrideMode := xSystemOverrideMode_TMO, 
 				i_xReset := xReset_PMPS_FFO2,
 				io_fbFFHWO :=g_FastFaultOutput2,
@@ -46,7 +81,7 @@ LI3K4_IP1_VWC_01(
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := F_Turbos_isRunning (), 
+				i_xExt_OK := xTurbos_are_Atspd AND xValves_are_OPN_OK, 
 				i_xOverrideMode := xSystemOverrideMode_TMO,
 				i_xReset := xReset_PMPS_FFO2,
 				io_fbFFHWO :=g_FastFaultOutput2,
@@ -58,51 +93,54 @@ PC5K4_VWC_01(
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := F_Turbos_isRunning (), 
+				i_xExt_OK := xTurbos_are_Atspd AND xValves_are_OPN_OK, 
 				i_xOverrideMode := xSystemOverrideMode_TMO, 
 				i_xReset := xReset_PMPS_FFO2,
 				io_fbFFHWO :=g_FastFaultOutput2,
                 fbArbiter := g_fbArbiter1);
 
-MR4K4_KBO_VWC_01(
+(* MR4K4_KBO_VWC_01(
 				i_stUSG := PA2K4_IP1_GCC_01.IG, 
 				i_stDSG:= MR4K4_KBO_GCC_01.IG, 
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := F_Turbos_isRunning (), 
+				i_xExt_OK := xTurbos_are_Atspd AND xValves_are_OPN_OK, 
 				i_xOverrideMode := xSystemOverrideMode_TMO, 
 				i_xReset := xReset_PMPS_FFO2,
 				io_fbFFHWO :=g_FastFaultOutput2,
                 fbArbiter := g_fbArbiter1);
 	
-(*  if any beamline valve closed due to interlock failure, we close all beamline valve, and send out failure state *)
-(*  MR4K4 and MR5K4 valves are missing since they are not installed yet *)
-(*
-IF ( NOT MR2K4_KBO_VWC_01.iq_stValve.xOPN_OK AND NOT MR2K4_KBO_VWC_01.iq_stValve.i_xOpnLS ) OR 
-   ( NOT MR3K4_KBO_VWC_01.iq_stValve.xOPN_OK AND NOT MR3K4_KBO_VWC_01.iq_stValve.i_xOpnLS ) OR 
-   ( NOT LI3K4_IP1_VWC_01.iq_stValve.xOPN_OK AND NOT LI3K4_IP1_VWC_01.iq_stValve.i_xOpnLS ) OR 
-   ( NOT PC5K4_KBO_VWC_01.iq_stValve.xOPN_OK AND NOT PC5K4_KBO_VWC_01.iq_stValve.i_xOpnLS )  
-
-THEN
-	MR2K4_KBO_VWC_01.iq_stValve.pv_xOPN_SW := FALSE;
-	MR3K4_KBO_VWC_01.iq_stValve.pv_xOPN_SW := FALSE;
-	LI3K4_IP1_VWC_01.iq_stValve.pv_xOPN_SW := FALSE;
-	PC5K4_KBO_VWC_01.iq_stValve.pv_xOPN_SW := FALSE;
-	MR4K4_KBO_VWC_01.iq_stValve.pv_xOPN_SW := FALSE;
-	xValveFault := TRUE;
-ELSE
-	xValveFault := FALSE;
-END_IF
-
 *)
 							   
 ]]></ST>
     </Implementation>
     <LineIds Name="PRG_Hutch_Beamline_Valves">
-      <LineId Id="3" Count="74" />
-      <LineId Id="97" Count="0" />
-      <LineId Id="79" Count="10" />
+      <LineId Id="3" Count="2" />
+      <LineId Id="123" Count="0" />
+      <LineId Id="147" Count="0" />
+      <LineId Id="124" Count="0" />
+      <LineId Id="126" Count="6" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="140" Count="0" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="139" Count="0" />
+      <LineId Id="144" Count="2" />
+      <LineId Id="143" Count="0" />
+      <LineId Id="141" Count="0" />
+      <LineId Id="149" Count="0" />
+      <LineId Id="121" Count="0" />
+      <LineId Id="135" Count="0" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="153" Count="5" />
+      <LineId Id="151" Count="0" />
+      <LineId Id="150" Count="0" />
+      <LineId Id="152" Count="0" />
+      <LineId Id="6" Count="12" />
+      <LineId Id="120" Count="0" />
+      <LineId Id="119" Count="0" />
+      <LineId Id="19" Count="49" />
+      <LineId Id="88" Count="1" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>
