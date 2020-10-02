@@ -15,9 +15,6 @@
     <LibraryReferences>{c866bfc4-4e1c-4b36-8def-6e39e85c8c7c}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="GVLs\GVL_FEE_Device.TcGVL">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="GVLs\GVL_Hutch_Gauges.TcGVL">
       <SubType>Code</SubType>
     </Compile>
