@@ -116,11 +116,11 @@ TMO_ROUGH2_VRC_01(
 (* check if PA1K4_IP1_PTM_03 is Atspd, if it is starting, set up a timer for 30s to *)
 
 xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := PA1K4_IP1_PTM_01.iq_stPTM, 
-			i_stISG := PA1K4_IP1_GCC_01.IG, 
+			i_stISG := PA1K4_IP1_GPI_01.PG, 
 			i_stBSG := TMO_ROUGH1_GPI_02.PG, 
 			iq_stValve := TMO_ROUGH1_VRC_01.iq_stValve)	;
 					
-
+(* delay 30s to start if PTM03 is not at speed*)
 IF (PA1K4_IP1_PTM_03.iq_stPTM.i_xAtSpd) AND (NOT PA1K4_IP1_PTM_03.iq_stPTM.i_xFault) THEN
 		PA1K4_IP1_PTM_01_xExtIlkOK := xExtIlkOK;
 
@@ -134,7 +134,7 @@ END_IF
 
 
 xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := PA1K4_IP1_PTM_02.iq_stPTM, 
-			i_stISG := PA1K4_IP1_GCC_01.IG, 
+			i_stISG := PA1K4_IP1_GPI_01.PG, 
 			i_stBSG := TMO_ROUGH1_GPI_02.PG, 
 			iq_stValve := TMO_ROUGH1_VRC_01.iq_stValve)	;
 
@@ -150,7 +150,7 @@ ELSE
 END_IF
 
 PA1K4_IP1_PTM_03_xExtIlkOK  := F_Turbo_Protection_ILK(i_stTurbo := PA1K4_IP1_PTM_03.iq_stPTM, 
-			i_stISG := PA1K4_IP1_GCC_01.IG, 
+			i_stISG := PA1K4_IP1_GPI_01.PG, 
 			i_stBSG := TMO_ROUGH1_GPI_02.PG, 
 			iq_stValve := TMO_ROUGH1_VRC_01.iq_stValve)	;
 
@@ -163,7 +163,7 @@ PA1K4_IP1_PTM_03(i_xExtIlkOK := PA1K4_IP1_PTM_03_xExtIlkOK, iq_stPTM => );
 (* Leybold turbo pumps on Granite 1 *)
 
 IM4K4_PPM_PTM_01_xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := IM4K4_PPM_PTM_01.iq_stPTM, 
-			i_stISG := IM4K4_PPM_GCC_01.IG, 
+			i_stISG := PA1K4_IP1_GPI_01.PG, 
 			i_stBSG := TMO_ROUGH1_GPI_02.PG, 
 			iq_stValve := TMO_ROUGH1_VRC_01.iq_stValve)	;
 
@@ -171,7 +171,7 @@ IM4K4_PPM_PTM_01(i_xExtIlkOK := IM4K4_PPM_PTM_01_xExtIlkOK, iq_stPTM => );
 
 
 LI1K4_IP1_PTM_01_xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := LI1K4_IP1_PTM_01.iq_stPTM, 
-			i_stISG := IM4K4_PPM_GCC_01.IG, 
+			i_stISG := PA1K4_IP1_GPI_01.PG, 
 			i_stBSG := TMO_ROUGH1_GPI_02.PG, 
 			iq_stValve := TMO_ROUGH1_VRC_01.iq_stValve)	;
 			
