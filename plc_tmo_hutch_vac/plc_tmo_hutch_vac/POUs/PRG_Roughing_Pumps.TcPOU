@@ -57,7 +57,7 @@ END_VAR]]></Declaration>
 
 
 
-rTolerance := 0.001;
+rTolerance := 0.1;
 xDifPressureOK := (ABS(TMO_ROUGH1_GPI_02.PG.rPRESS - TMO_ROUGH1_GPI_03.PG.rPRESS ) <= rTolerance ) AND
 				  TMO_ROUGH1_GPI_02.PG.xPRESS_OK AND TMO_ROUGH1_GPI_03.PG.xPRESS_OK;
 				  
@@ -66,19 +66,14 @@ TMO_ROUGH1_VRC_01_xExt_OK := xDifPressureOK OR TMO_ROUGH1_VRC_02.iq_stValve.i_xC
 TMO_ROUGH1_VRC_02_xExt_OK := xDifPressureOK OR TMO_ROUGH1_VRC_01.iq_stValve.i_xClsLS; 
 
 
-
-
-
-
-
 TMO_ROUGH1_VRC_01(
 				i_stUSG := TMO_ROUGH1_GPI_02.PG, 
 				i_stDSG:= TMO_ROUGH1_GPI_01.PG, 
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := TRUE, 
-				i_xOverrideMode := xSystemOverrideMode_TMO,
+				i_xExt_OK := TMO_ROUGH1_VRC_01_xExt_OK, 
+				i_xOverrideMode := xSystemOverrideMode_TMO AND TMO_ROUGH1_VRC_01_xExt_OK,
 				i_xReset := False,
 				io_fbFFHWO :=dummy_FFFO,
                 fbArbiter := dummy_fbArbiter1,
@@ -91,8 +86,8 @@ TMO_ROUGH1_VRC_02(
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := TRUE, 
-				i_xOverrideMode := xSystemOverrideMode_TMO, 
+				i_xExt_OK := TMO_ROUGH1_VRC_02_xExt_OK, 
+				i_xOverrideMode := xSystemOverrideMode_TMO AND TMO_ROUGH1_VRC_02_xExt_OK, 
 				i_xReset := false,
 				io_fbFFHWO :=dummy_FFFO,
                 fbArbiter := dummy_fbArbiter1);
@@ -163,11 +158,11 @@ PA1K4_IP1_PTM_03(i_xExtIlkOK := PA1K4_IP1_PTM_03_xExtIlkOK, iq_stPTM => );
 
 (*Serial Interface*)
 (*Assign adresses to the pfeiffer controllers connected to this serial terminal*)
-st_Pfeiffer_CTRL_PTM_01_02_03[1].iSerialAddress :=10;
+st_Pfeiffer_CTRL_PTM_01_02_03[1].iSerialAddress :=10;//PA1K4_IP1_PTM_01
 st_Pfeiffer_CTRL_PTM_01_02_03[1].xEnableComm := TRUE;
-st_Pfeiffer_CTRL_PTM_01_02_03[2].iSerialAddress :=9;
+st_Pfeiffer_CTRL_PTM_01_02_03[2].iSerialAddress :=9;//PA1K4_IP1_PTM_02
 st_Pfeiffer_CTRL_PTM_01_02_03[2].xEnableComm := TRUE;
-st_Pfeiffer_CTRL_PTM_01_02_03[3].iSerialAddress :=2;
+st_Pfeiffer_CTRL_PTM_01_02_03[3].iSerialAddress :=18;//PA1K4_IP1_PTM_03
 st_Pfeiffer_CTRL_PTM_01_02_03[3].xEnableComm := TRUE;	
 (* Instanitate the Function block for serial communication with Pfeiffer*)	
 PA1K4_IP1_PTM_01_02_03_COM(astPfeifferControl := st_Pfeiffer_CTRL_PTM_01_02_03,
@@ -261,8 +256,7 @@ IM5K4_PPM_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL=>st_Pfeiffer_CTRL_PTM_Granite2[3],
       <LineId Id="314" Count="18" />
       <LineId Id="334" Count="5" />
       <LineId Id="341" Count="0" />
-      <LineId Id="309" Count="3" />
-      <LineId Id="81" Count="8" />
+      <LineId Id="82" Count="7" />
       <LineId Id="129" Count="1" />
       <LineId Id="98" Count="0" />
       <LineId Id="80" Count="0" />
