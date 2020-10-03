@@ -16,6 +16,9 @@ VAR_GLOBAL
 	
 	{attribute 'pytmc' := 'pv: TMO:NEH:VALVE:FAULT'}
 	xValveFault: BOOL := FALSE; (* True if any hutch turbo is not at speed or fault *)	
+	
+		{attribute 'pytmc' := 'pv: TMO:NEH:ALL:GCC:ENABLE'}
+	xGCC_Enable_SW: BOOL := FALSE; (* True if any hutch turbo is not at speed or fault *)	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
