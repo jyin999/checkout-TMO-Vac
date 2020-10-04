@@ -103,14 +103,17 @@
 				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
-				<Task Id="4" Priority="21" CycleTime="10000" AmsPort="351" AdtTasks="true">
+				<Task Id="4" Priority="21" CycleTime="30000" AmsPort="351" AdtTasks="true">
 					<Name>ComTask</Name>
+				</Task>
+				<Task Id="5" Priority="1" CycleTime="10000" AmsPort="352" AdtTasks="true">
+					<Name>FSVTask</Name>
 				</Task>
 			</Tasks>
 		</System>
 		<Plc>
 			<Project File="plc_tmo_hutch_vac.xti"/>
-			<Project GUID="{EDC9D7A7-C58D-4511-875F-8641F865D98E}" Name="plc_tmo_hutch_vac_fs" PrjFilePath="plc_tmo_hutch_vac_fs\plc_tmo_hutch_vac_fs.plcproj" TmcFilePath="plc_tmo_hutch_vac_fs\plc_tmo_hutch_vac_fs.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
+			<Project Disabled="true" GUID="{EDC9D7A7-C58D-4511-875F-8641F865D98E}" Name="plc_tmo_hutch_vac_fs" PrjFilePath="plc_tmo_hutch_vac_fs\plc_tmo_hutch_vac_fs.plcproj" TmcFilePath="plc_tmo_hutch_vac_fs\plc_tmo_hutch_vac_fs.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
 				<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="plc_tmo_hutch_vac_fs\plc_tmo_hutch_vac_fs.tmc">
 					<Name>plc_tmo_hutch_vac_fs Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>

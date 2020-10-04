@@ -18,7 +18,18 @@
     <Compile Include="ComTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FSVTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\GVL_COM.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVL_FSV_PMPS.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVL_FS_Devices.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
@@ -53,6 +64,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\PRG_FEE.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\PRG_FSV.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\PRG_Hutch_Beamline_Valves.TcPOU">

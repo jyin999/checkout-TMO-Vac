@@ -2,7 +2,7 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <Task Name="ComTask" Id="{60356f3e-254f-463f-9bc9-1e443c1a9a31}">
     <!--CycleTime in micro seconds.-->
-    <CycleTime>1000</CycleTime>
+    <CycleTime>3000</CycleTime>
     <Priority>21</Priority>
     <PouCall>
       <Name>PRG_COM</Name>
