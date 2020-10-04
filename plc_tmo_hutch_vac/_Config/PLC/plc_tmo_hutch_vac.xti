@@ -516,6 +516,10 @@
 			<Vars VarGrpType="2">
 				<Name>FSVTask Outputs</Name>
 				<Var>
+					<Name>GVL_FSV_PMPS.g_FastFaultOutput3.q_xFastFaultOut</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>GVL_FS_Devices.MR3K4_KBO_VFS_1.q_xClose_A</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -630,10 +634,6 @@
 						<![CDATA[Interface]]>
 					</Comment>
 					<Type GUID="{B79D91A1-846E-4A33-B61F-88E66D7D9241}" Namespace="LCLS_Vacuum">E_VGC</Type>
-				</Var>
-				<Var>
-					<Name>GVL_FSV_PMPS.g_FastFaultOutput3.q_xFastFaultOut</Name>
-					<Type>BOOL</Type>
 				</Var>
 			</Vars>
 			<Vars VarGrpType="8">
@@ -1102,6 +1102,13 @@
 					<Name>GVL_Hutch_Pumps.IM4K4_PPM_PTM_01.i_xFaultNC</Name>
 					<Comment>
 						<![CDATA[ Error Active when no Error is present]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Variables.xLAMP_PTM_NOK</Name>
+					<Comment>
+						<![CDATA[ True if any hutch turbo is not at speed or fault ]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
@@ -1875,8 +1882,8 @@
 				</OwnerA>
 			</UnrestoredVarLinks>
 			<TaskPouOids>
+				<TaskPouOid Prio="19" OTCID="#x08502001"/>
 				<TaskPouOid Prio="21" OTCID="#x08502003"/>
-				<TaskPouOid Prio="1" OTCID="#x08502001"/>
 				<TaskPouOid Prio="20" OTCID="#x08502002"/>
 			</TaskPouOids>
 		</Instance>
@@ -2163,6 +2170,9 @@
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.i_xHV_ON" VarB="Channel 3^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xDisc_Active" VarB="Channel 2^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.i_xHV_ON" VarB="Channel 1^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E22_IP1 (EL1004)">
+				<Link VarA="PlcTask Inputs^GVL_Variables.xLAMP_PTM_NOK" VarB="Channel 1^Input" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E3 (EL1004)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Valves.LI3K4_IP1_VWC_01.i_xClsLS" VarB="Channel 2^Input" AutoLink="true"/>

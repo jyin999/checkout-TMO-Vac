@@ -65,7 +65,8 @@ ton_IM5K4_PPM_PTM_01_notRunning(IN:= NOT IM5K4_PPM_PTM_01_isRunning, PT:=tDelOK)
 xTurboFault := ton_PA1K4_IP1_PTM_01_notRunning.Q OR ton_PA1K4_IP1_PTM_02_notRunning.Q OR
                ton_PA1K4_IP1_PTM_03_notRunning.Q OR ton_IM4K4_PPM_PTM_01_notRunning.Q OR
 			   ton_LI1K4_IP1_PTM_01_notRunning.Q OR ton_LI3K4_IP1_OUT_PTM_01_notRunning.Q OR
-				ton_TM1K4_PTM_01_notRunning.Q OR ton_IM5K4_PPM_PTM_01_notRunning.Q ;
+				ton_TM1K4_PTM_01_notRunning.Q OR ton_IM5K4_PPM_PTM_01_notRunning.Q 
+				OR xLAMP_PTM_NOK;
 
 (* check beamline valve OPEN permit *)	
 xValves_are_OPN_OK :=  MR2K4_KBO_VWC_01.iq_stValve.xOPN_OK AND MR3K4_KBO_VWC_01.iq_stValve.xOPN_OK AND
@@ -173,6 +174,7 @@ PC5K4_VWC_01(
       <LineId Id="172" Count="0" />
       <LineId Id="144" Count="0" />
       <LineId Id="216" Count="2" />
+      <LineId Id="248" Count="0" />
       <LineId Id="146" Count="0" />
       <LineId Id="121" Count="0" />
       <LineId Id="135" Count="0" />

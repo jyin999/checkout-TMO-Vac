@@ -9,7 +9,7 @@ VAR_GLOBAL
 	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E1 (EL3174)^AI Standard Channel 2^Value '}
 	MR2K4_KBO_GPI_01 : FB_MKS275;
 	
-	{attribute 'pytmc' :=' pv: TV1K4:GCC:01 '}
+	{attribute 'pytmc' :=' pv: MR2K4:KBO:GCC:01 '}
 	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E1 (EL3174)^AI Standard Channel 3^Value;
 								 .i_xHV_ON	    :=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E7 (EL1124)^Channel 3^Input;
 								 .i_xDisc_Active:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E7 (EL1124)^Channel 4^Input;								 
@@ -40,7 +40,7 @@ VAR_GLOBAL
     LI2K4_IP1_GFS_01 : FB_MKS422;
 	
 	
-	{attribute 'pytmc' :=' pv: TM4K4:GCC:01 '}
+	{attribute 'pytmc' :=' pv: TM1K4:GCC:01 '}
 	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E15 (EL3174)^AI Standard Channel 1^Value;
 								 .i_xHV_ON	    :=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E20 (EL1124)^Channel 1^Input;
 								 .i_xDisc_Active:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E20 (EL1124)^Channel 2^Input;								 
