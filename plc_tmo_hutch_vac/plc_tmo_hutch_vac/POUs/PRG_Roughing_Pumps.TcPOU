@@ -162,7 +162,7 @@ st_Pfeiffer_CTRL_PTM_01_02_03[1].iSerialAddress :=10;//PA1K4_IP1_PTM_01
 st_Pfeiffer_CTRL_PTM_01_02_03[1].xEnableComm := TRUE;
 st_Pfeiffer_CTRL_PTM_01_02_03[2].iSerialAddress :=9;//PA1K4_IP1_PTM_02
 st_Pfeiffer_CTRL_PTM_01_02_03[2].xEnableComm := TRUE;
-st_Pfeiffer_CTRL_PTM_01_02_03[3].iSerialAddress :=18;//PA1K4_IP1_PTM_03
+st_Pfeiffer_CTRL_PTM_01_02_03[3].iSerialAddress :=1;//PA1K4_IP1_PTM_03
 st_Pfeiffer_CTRL_PTM_01_02_03[3].xEnableComm := TRUE;	
 (* Instanitate the Function block for serial communication with Pfeiffer*)	
 PA1K4_IP1_PTM_01_02_03_COM(astPfeifferControl := st_Pfeiffer_CTRL_PTM_01_02_03,
@@ -170,9 +170,9 @@ PA1K4_IP1_PTM_01_02_03_COM(astPfeifferControl := st_Pfeiffer_CTRL_PTM_01_02_03,
 				SerialRXBuffer:= K4S2_02_E10_SerialRXBuffer,
 				SerialTXBuffer:= K4S2_02_E10_SerialTXBuffer);
 (* Copy Status Pv's into the PTM structure*)
-PA1K4_IP1_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL=>st_Pfeiffer_CTRL_PTM_01_02_03[1],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_01_02_03[1]);				
-PA1K4_IP1_PTM_02.M_Serial_IO(st_Pfeiffer_CTRL=>st_Pfeiffer_CTRL_PTM_01_02_03[2],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_01_02_03[2]);				
-PA1K4_IP1_PTM_03.M_Serial_IO(st_Pfeiffer_CTRL=>st_Pfeiffer_CTRL_PTM_01_02_03[3],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_01_02_03[3]);				
+PA1K4_IP1_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_01_02_03[1],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_01_02_03[1]);				
+PA1K4_IP1_PTM_02.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_01_02_03[2],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_01_02_03[2]);				
+PA1K4_IP1_PTM_03.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_01_02_03[3],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_01_02_03[3]);				
 		
 (* Leybold turbo pumps on Granite 1 *)
 
@@ -245,9 +245,9 @@ Granite2_PTM_COM(astPfeifferControl := st_Pfeiffer_CTRL_PTM_Granite2,
 				SerialRXBuffer:= K4S6_01_E5_SerialRXBuffer,
 				SerialTXBuffer:= K4S6_01_E5_SerialTXBuffer);
 (* Copy Status Pv's into the PTM structure*)
-LI3K4_IP1_OUT_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL=>st_Pfeiffer_CTRL_PTM_Granite2[1],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_Granite2[1]);				
-TM1K4_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL=>st_Pfeiffer_CTRL_PTM_Granite2[2],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_Granite2[2]);				
-IM5K4_PPM_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL=>st_Pfeiffer_CTRL_PTM_Granite2[3],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_Granite2[3]);				
+LI3K4_IP1_OUT_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_Granite2[1],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_Granite2[1]);				
+TM1K4_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_Granite2[2],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_Granite2[2]);				
+IM5K4_PPM_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_Granite2[3],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_Granite2[3]);				
 		
 ]]></ST>
     </Implementation>

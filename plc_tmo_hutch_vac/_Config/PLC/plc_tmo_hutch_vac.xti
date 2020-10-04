@@ -498,6 +498,166 @@
 					<Type>BIT</Type>
 				</Var>
 				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xAtSpd</Name>
+					<Comment>
+						<![CDATA[ Normaml operation when true]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xFaultNC</Name>
+					<Comment>
+						<![CDATA[ Error]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xWarn</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xRemote</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xAtSpd</Name>
+					<Comment>
+						<![CDATA[ Normaml operation when true]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xFaultNC</Name>
+					<Comment>
+						<![CDATA[ Error]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xWarn</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xRemote</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xAtSpd</Name>
+					<Comment>
+						<![CDATA[ Normaml operation when true]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xFaultNC</Name>
+					<Comment>
+						<![CDATA[ Error]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xWarn</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xRemote</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.IM4K4_PPM_PTM_01.i_xAtSpd</Name>
+					<Comment>
+						<![CDATA[ Normaml operation when true]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.IM4K4_PPM_PTM_01.i_xFaultNC</Name>
+					<Comment>
+						<![CDATA[ Error Active when no Error is present]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.LI1K4_IP1_PTM_01.i_xAtSpd</Name>
+					<Comment>
+						<![CDATA[ Normaml operation when true]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.LI1K4_IP1_PTM_01.i_xFaultNC</Name>
+					<Comment>
+						<![CDATA[ Error Active when no Error is present]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xAtSpd</Name>
+					<Comment>
+						<![CDATA[ Normaml operation when true]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xFaultNC</Name>
+					<Comment>
+						<![CDATA[ Error]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xWarn</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xRemote</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.TM1K4_PTM_01.i_xAtSpd</Name>
+					<Comment>
+						<![CDATA[ Normaml operation when true]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.TM1K4_PTM_01.i_xFaultNC</Name>
+					<Comment>
+						<![CDATA[ Error]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.TM1K4_PTM_01.i_xWarn</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.TM1K4_PTM_01.i_xRemote</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xAtSpd</Name>
+					<Comment>
+						<![CDATA[ Normaml operation when true]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xFaultNC</Name>
+					<Comment>
+						<![CDATA[ Error]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xWarn</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xRemote</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GPI_01.i_iPRESS_R</Name>
 					<Comment>
 						<![CDATA[ input Pressure // Link to analog Input]]>
@@ -713,166 +873,6 @@
 						<![CDATA[ input Pressure // Link to analog Input]]>
 					</Comment>
 					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xAtSpd</Name>
-					<Comment>
-						<![CDATA[ Normaml operation when true]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xFaultNC</Name>
-					<Comment>
-						<![CDATA[ Error]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xWarn</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.i_xRemote</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xAtSpd</Name>
-					<Comment>
-						<![CDATA[ Normaml operation when true]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xFaultNC</Name>
-					<Comment>
-						<![CDATA[ Error]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xWarn</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_02.i_xRemote</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xAtSpd</Name>
-					<Comment>
-						<![CDATA[ Normaml operation when true]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xFaultNC</Name>
-					<Comment>
-						<![CDATA[ Error]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xWarn</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_03.i_xRemote</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.IM4K4_PPM_PTM_01.i_xAtSpd</Name>
-					<Comment>
-						<![CDATA[ Normaml operation when true]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.IM4K4_PPM_PTM_01.i_xFaultNC</Name>
-					<Comment>
-						<![CDATA[ Error Active when no Error is present]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.LI1K4_IP1_PTM_01.i_xAtSpd</Name>
-					<Comment>
-						<![CDATA[ Normaml operation when true]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.LI1K4_IP1_PTM_01.i_xFaultNC</Name>
-					<Comment>
-						<![CDATA[ Error Active when no Error is present]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xAtSpd</Name>
-					<Comment>
-						<![CDATA[ Normaml operation when true]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xFaultNC</Name>
-					<Comment>
-						<![CDATA[ Error]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xWarn</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xRemote</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.TM1K4_PTM_01.i_xAtSpd</Name>
-					<Comment>
-						<![CDATA[ Normaml operation when true]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.TM1K4_PTM_01.i_xFaultNC</Name>
-					<Comment>
-						<![CDATA[ Error]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.TM1K4_PTM_01.i_xWarn</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.TM1K4_PTM_01.i_xRemote</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xAtSpd</Name>
-					<Comment>
-						<![CDATA[ Normaml operation when true]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xFaultNC</Name>
-					<Comment>
-						<![CDATA[ Error]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xWarn</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Pumps.IM5K4_PPM_PTM_01.i_xRemote</Name>
-					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>GVL_Hutch_Valves.MR2K4_KBO_VWC_01.i_xOpnLS</Name>
@@ -1096,62 +1096,6 @@
 					</SubVar>
 				</Var>
 				<Var>
-					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.q_xHV_DIS</Name>
-					<Comment>
-						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.q_xHV_DIS</Name>
-					<Comment>
-						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.q_xHV_DIS</Name>
-					<Comment>
-						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.LI2K4_IP1_GFS_01.q_xHV_DIS</Name>
-					<Comment>
-						<![CDATA[ Disable Gauge High Voltage when True // 'TcLinkTo' (EL2794) ^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.q_xHV_DIS</Name>
-					<Comment>
-						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.q_xHV_DIS</Name>
-					<Comment>
-						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.q_xHV_DIS</Name>
-					<Comment>
-						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.q_xHV_DIS</Name>
-					<Comment>
-						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>GVL_Hutch_Pumps.PA1K4_IP1_PTM_01.q_RunDO</Name>
 					<Comment>
 						<![CDATA[ Start/Stop for TC110 link this output to the Pumping station bit]]>
@@ -1298,6 +1242,62 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>GVL_Hutch_Gauges.MR2K4_KBO_GCC_01.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA1K4_IP1_GCC_01.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM4K4_PPM_GCC_01.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.LI2K4_IP1_GFS_01.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[ Disable Gauge High Voltage when True // 'TcLinkTo' (EL2794) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.TM1K4_GCC_01.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.IM5K4_PPM_GCC_01.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.PA2K4_IP1_GCC_01.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Gauges.MR4K4_KBO_GCC_01.q_xHV_DIS</Name>
+					<Comment>
+						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>GVL_Hutch_Valves.MR2K4_KBO_VWC_01.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -1400,28 +1400,6 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Hutch_Valves.MR4K4_KBO_VWC_01.i_xOpnLS</Name>
-					<Comment>
-						<![CDATA[IO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Valves.MR4K4_KBO_VWC_01.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Valves.MR5K4_KBO_VWC_01.i_xOpnLS</Name>
-					<Comment>
-						<![CDATA[IO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Hutch_Valves.MR5K4_KBO_VWC_01.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>GVL_COM.K4S2_02_E10_stComIn</Name>
 					<Comment>
 						<![CDATA[SERIAL IO //K4S2_02_E10 (EL6021)]]>
@@ -1449,6 +1427,28 @@
 					</Comment>
 					<Type GUID="{394B19AF-09E0-4289-9FBC-7AE563F0A02A}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 				</Var>
+				<Var>
+					<Name>GVL_Hutch_Valves.MR4K4_KBO_VWC_01.i_xOpnLS</Name>
+					<Comment>
+						<![CDATA[IO]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Valves.MR4K4_KBO_VWC_01.i_xClsLS</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Valves.MR5K4_KBO_VWC_01.i_xOpnLS</Name>
+					<Comment>
+						<![CDATA[IO]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Hutch_Valves.MR5K4_KBO_VWC_01.i_xClsLS</Name>
+					<Type>BOOL</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>ComTask Outputs</Name>
@@ -1472,6 +1472,22 @@
 						<![CDATA[ Enable High Voltage when TRUE]]>
 					</Comment>
 					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_COM.K4S2_02_E10_stComOut</Name>
+					<Type GUID="{2C03BA5E-14EB-4859-BA79-504F855561D6}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_COM.K4S6_01_E5_stComOut</Name>
+					<Type GUID="{2C03BA5E-14EB-4859-BA79-504F855561D6}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_COM.K4S2_02_E17_stComOut</Name>
+					<Type GUID="{2C03BA5E-14EB-4859-BA79-504F855561D6}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_COM.K4S2_02_E18_stComOut</Name>
+					<Type GUID="{2C03BA5E-14EB-4859-BA79-504F855561D6}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 				</Var>
 				<Var>
 					<Name>GVL_Hutch_Valves.MR4K4_KBO_VWC_01.q_xOPN_DO</Name>
@@ -1508,22 +1524,6 @@
 						<![CDATA[IO]]>
 					</Comment>
 					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_COM.K4S2_02_E10_stComOut</Name>
-					<Type GUID="{2C03BA5E-14EB-4859-BA79-504F855561D6}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_COM.K4S6_01_E5_stComOut</Name>
-					<Type GUID="{2C03BA5E-14EB-4859-BA79-504F855561D6}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_COM.K4S2_02_E17_stComOut</Name>
-					<Type GUID="{2C03BA5E-14EB-4859-BA79-504F855561D6}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_COM.K4S2_02_E18_stComOut</Name>
-					<Type GUID="{2C03BA5E-14EB-4859-BA79-504F855561D6}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 				</Var>
 			</Vars>
 			<Vars VarGrpType="8">
@@ -1857,6 +1857,54 @@
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E4 (EL2004)">
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.LI3K4_IP1_VWC_01.q_xOPN_DO" VarB="Channel 1^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_Hutch_Valves.PC5K4_VWC_01.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E5 (EL6021)">
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[0]" VarB="COM TxPDO-Map Inputs^Data In 0" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[10]" VarB="COM TxPDO-Map Inputs^Data In 10" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[11]" VarB="COM TxPDO-Map Inputs^Data In 11" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[12]" VarB="COM TxPDO-Map Inputs^Data In 12" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[13]" VarB="COM TxPDO-Map Inputs^Data In 13" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[14]" VarB="COM TxPDO-Map Inputs^Data In 14" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[15]" VarB="COM TxPDO-Map Inputs^Data In 15" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[16]" VarB="COM TxPDO-Map Inputs^Data In 16" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[17]" VarB="COM TxPDO-Map Inputs^Data In 17" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[18]" VarB="COM TxPDO-Map Inputs^Data In 18" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[19]" VarB="COM TxPDO-Map Inputs^Data In 19" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[1]" VarB="COM TxPDO-Map Inputs^Data In 1" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[20]" VarB="COM TxPDO-Map Inputs^Data In 20" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[21]" VarB="COM TxPDO-Map Inputs^Data In 21" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[2]" VarB="COM TxPDO-Map Inputs^Data In 2" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[3]" VarB="COM TxPDO-Map Inputs^Data In 3" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[4]" VarB="COM TxPDO-Map Inputs^Data In 4" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[5]" VarB="COM TxPDO-Map Inputs^Data In 5" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[6]" VarB="COM TxPDO-Map Inputs^Data In 6" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[7]" VarB="COM TxPDO-Map Inputs^Data In 7" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[8]" VarB="COM TxPDO-Map Inputs^Data In 8" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^D[9]" VarB="COM TxPDO-Map Inputs^Data In 9" AutoLink="true"/>
+				<Link VarA="ComTask Inputs^GVL_COM.K4S6_01_E5_stComIn^Status" VarB="COM TxPDO-Map Inputs^Status" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^Ctrl" VarB="COM RxPDO-Map Outputs^Ctrl" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[0]" VarB="COM RxPDO-Map Outputs^Data Out 0" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[10]" VarB="COM RxPDO-Map Outputs^Data Out 10" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[11]" VarB="COM RxPDO-Map Outputs^Data Out 11" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[12]" VarB="COM RxPDO-Map Outputs^Data Out 12" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[13]" VarB="COM RxPDO-Map Outputs^Data Out 13" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[14]" VarB="COM RxPDO-Map Outputs^Data Out 14" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[15]" VarB="COM RxPDO-Map Outputs^Data Out 15" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[16]" VarB="COM RxPDO-Map Outputs^Data Out 16" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[17]" VarB="COM RxPDO-Map Outputs^Data Out 17" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[18]" VarB="COM RxPDO-Map Outputs^Data Out 18" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[19]" VarB="COM RxPDO-Map Outputs^Data Out 19" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[1]" VarB="COM RxPDO-Map Outputs^Data Out 1" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[20]" VarB="COM RxPDO-Map Outputs^Data Out 20" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[21]" VarB="COM RxPDO-Map Outputs^Data Out 21" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[2]" VarB="COM RxPDO-Map Outputs^Data Out 2" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[3]" VarB="COM RxPDO-Map Outputs^Data Out 3" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[4]" VarB="COM RxPDO-Map Outputs^Data Out 4" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[5]" VarB="COM RxPDO-Map Outputs^Data Out 5" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[6]" VarB="COM RxPDO-Map Outputs^Data Out 6" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[7]" VarB="COM RxPDO-Map Outputs^Data Out 7" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[8]" VarB="COM RxPDO-Map Outputs^Data Out 8" AutoLink="true"/>
+				<Link VarA="ComTask Outputs^GVL_COM.K4S6_01_E5_stComOut^D[9]" VarB="COM RxPDO-Map Outputs^Data Out 9" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^TMO_K4S6_DRL_01 (EK1100)^K4S6_01_E6 (EL1004)">
 				<Link VarA="PlcTask Inputs^GVL_Hutch_Pumps.LI3K4_IP1_OUT_PTM_01.i_xAtSpd" VarB="Channel 1^Input" AutoLink="true"/>

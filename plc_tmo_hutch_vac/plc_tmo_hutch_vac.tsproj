@@ -86,11 +86,19 @@
 			<Hides>
 				<Hide GUID="{7DC879C1-F57C-44EC-A5E0-917A2B10EA1C}"/>
 				<Hide GUID="{A2CFAA6C-2E42-4570-AF96-8412C9A5EFA0}"/>
+				<Hide GUID="{DA7564C6-F21F-4FA4-B214-4C9443C16DC0}"/>
+				<Hide GUID="{652E330F-D3F7-4275-98F2-A352181B3B26}"/>
+				<Hide GUID="{5E122623-DF2D-4E66-9CB4-5F91BD531BE7}"/>
 			</Hides>
 		</DataType>
 	</DataTypes>
 	<Project ProjectGUID="{39788231-2958-4D23-A695-4EB713A80328}" TargetNetId="172.21.132.45.1.1" ShowHideConfigurations="#x306">
 		<System>
+			<Licenses>
+				<Target>
+					<ManualSelect>{3EBB9639-5FF3-42B6-8847-35C70DC013C8}</ManualSelect>
+				</Target>
+			</Licenses>
 			<Tasks>
 				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
 					<Name>PlcTask</Name>
