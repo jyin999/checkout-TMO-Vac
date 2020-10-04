@@ -30,7 +30,6 @@ VAR_GLOBAL
 
 
 
-
 	{attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E11 (EL1004)^Channel 4^Input;
 								 .i_xFaultNC		:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E11 (EL1004)^Channel 3^Input;
 								 .q_RunDO			:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E12 (EL2794)^Channel 3^Output;
@@ -42,7 +41,6 @@ VAR_GLOBAL
 	'}	
 	PA1K4_IP1_PTM_02 : FB_PTM_Pfeiffer;
 	
-	
 	{attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E13 (EL1004)^Channel 2^Input;
 								 .i_xFaultNC		:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E13 (EL1004)^Channel 1^Input;
 								 .q_RunDO			:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E14 (EL2794)^Channel 1^Output;
@@ -53,6 +51,11 @@ VAR_GLOBAL
 		io: io
 	'}	
 	PA1K4_IP1_PTM_03 : FB_PTM_Pfeiffer;
+	
+	// They share the same serial port
+	st_Pfeiffer_CTRL_PTM_01_02_03			: ARRAY[1..20] OF ST_PfeifferControl;
+	st_Pfeiffer_RBK_PTM_01_02_03			: ARRAY[1..20] OF ST_PfeifferStatus;
+	PA1K4_IP1_PTM_01_02_03_COM: FB_PFEIFFER_COM;
 
 (* Leybold Turbo Pumps Mag.drive is*)	
 
@@ -65,6 +68,7 @@ VAR_GLOBAL
 		io: io
 	'}
 	IM4K4_PPM_PTM_01 : FB_PTM_TurboDrive;
+	IM4K4_PPM_PTM_01_COM:FB_Oerlikon_TD20_COM;
 	
 	{attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E15 (EL1004)^Channel 4^Input;
 								 .i_xFaultNC		:=	TIIB[TMO_K4S2_DRL_02 (EK1100)]^K4S2_02_E15 (EL1004)^Channel 3^Input;
@@ -75,7 +79,7 @@ VAR_GLOBAL
 		io: io
 	'}
 	LI1K4_IP1_PTM_01 : FB_PTM_TurboDrive;
-	
+	LI1K4_IP1_PTM_01_COM: FB_Oerlikon_TD20_COM;
 
 (* Granite 2 *)
 (* Pfeiffer Turbo Pumps TM700 *)
@@ -92,7 +96,6 @@ VAR_GLOBAL
 		io: io
 	'}
     LI3K4_IP1_OUT_PTM_01 : FB_PTM_Pfeiffer;
-
 (* Pfeiffer Turbo Pumps TC400 *)
 	
 	{attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[TMO_K4S6_DRL_01 (EK1100)]^K4S6_01_E6 (EL1004)^Channel 4^Input;
@@ -121,7 +124,10 @@ VAR_GLOBAL
 		io: io
 	'}
 	IM5K4_PPM_PTM_01 : FB_PTM_Pfeiffer;
-
+	// They share the same serial port
+	st_Pfeiffer_CTRL_PTM_Granite2			: ARRAY[1..20] OF ST_PfeifferControl;
+	st_Pfeiffer_RBK_PTM_Granite2			: ARRAY[1..20] OF ST_PfeifferStatus;
+	Granite2_PTM_COM :FB_PFEIFFER_COM;
 	
 END_VAR]]></Declaration>
   </GVL>

@@ -65,16 +65,17 @@ END_VAR
 
 (* Auto switch on cold cathode gauges if interlock permits *)
 
-(*
-MR2K4_KBO_GCC_01.M_HVE(TRUE);
-PA1K4_IP1_GCC_01.M_HVE(TRUE);
-IM4K4_PPM_GCC_01.M_HVE(TRUE);
-TM1K4_GCC_01.M_HVE(TRUE);
-IM5K4_PPM_GCC_01.M_HVE(TRUE);
-PA2K4_IP1_GCC_01.M_HVE(TRUE);
-// MR4K4_KBO_GCC_01.M_HVE(TRUE);
-
-*)
+If xGCC_Enable_SW THEN
+	
+	MR2K4_KBO_GCC_01.M_HVE(TRUE);
+	PA1K4_IP1_GCC_01.M_HVE(TRUE);
+	IM4K4_PPM_GCC_01.M_HVE(TRUE);
+	TM1K4_GCC_01.M_HVE(TRUE);
+	IM5K4_PPM_GCC_01.M_HVE(TRUE);
+	PA2K4_IP1_GCC_01.M_HVE(TRUE);
+	// MR4K4_KBO_GCC_01.M_HVE(TRUE);
+	xGCC_Enable_SW := False;
+END_IF
 
 	]]></ST>
     </Implementation>
@@ -126,11 +127,11 @@ PA2K4_IP1_GCC_01.M_HVE(TRUE);
       <LineId Id="32" Count="0" />
       <LineId Id="85" Count="0" />
       <LineId Id="84" Count="0" />
+      <LineId Id="103" Count="0" />
       <LineId Id="86" Count="0" />
       <LineId Id="89" Count="0" />
       <LineId Id="91" Count="4" />
-      <LineId Id="97" Count="0" />
-      <LineId Id="90" Count="0" />
+      <LineId Id="101" Count="1" />
       <LineId Id="88" Count="0" />
       <LineId Id="2" Count="0" />
     </LineIds>

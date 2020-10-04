@@ -19,11 +19,11 @@
 		<Box File="K4S6_01_E4 (EL2004).xti" Id="67">
 			<EtherCAT PortABoxInfo="#x01000042"/>
 		</Box>
-		<Box File="K4S6_01_E5 (EL6021).xti" Id="68">
+		<Box File="K4S6_01_E5 (EL6021).xti" Id="101">
 			<EtherCAT PortABoxInfo="#x01000043"/>
 		</Box>
 		<Box File="K4S6_01_E6 (EL1004).xti" Id="69">
-			<EtherCAT PortABoxInfo="#x01000044"/>
+			<EtherCAT PortABoxInfo="#x01000065"/>
 		</Box>
 		<Box File="K4S6_01_E7 (EL2004).xti" Id="70">
 			<EtherCAT PortABoxInfo="#x01000045"/>
@@ -34,11 +34,11 @@
 		<Box File="K4S6_01_E9 (EL2004).xti" Id="72">
 			<EtherCAT PortABoxInfo="#x01000047"/>
 		</Box>
-		<Box File="K4S6_01_E10 (EL6021).xti" Id="73">
+		<Box File="K4S6_01_E10 (EL6021).xti" Id="106">
 			<EtherCAT PortABoxInfo="#x01000048"/>
 		</Box>
 		<Box File="K4S6_01_E11 (EL1004).xti" Id="74">
-			<EtherCAT PortABoxInfo="#x01000049"/>
+			<EtherCAT PortABoxInfo="#x0100006a"/>
 		</Box>
 		<Box File="K4S6_01_E12 (EL2004).xti" Id="75">
 			<EtherCAT PortABoxInfo="#x0100004a"/>
@@ -70,8 +70,17 @@
 		<Box File="K4S6_01_E21 (EL1124).xti" Id="82">
 			<EtherCAT PortABoxInfo="#x01000051"/>
 		</Box>
-		<Box File="Term 91 (EL9011).xti" Id="91">
+		<Box File="Term 119 (EL9410).xti" Id="119">
 			<EtherCAT PortABoxInfo="#x01000052"/>
+		</Box>
+		<Box File="K4S6_01_E22_IP1 (EL1004).xti" Id="116">
+			<EtherCAT PortABoxInfo="#x01000077"/>
+		</Box>
+		<Box File="K4S6_01_E23_IP1 (EL2794).xti" Id="117">
+			<EtherCAT PortABoxInfo="#x01000074"/>
+		</Box>
+		<Box File="Term 91 (EL9011).xti" Id="91">
+			<EtherCAT PortABoxInfo="#x01000075"/>
 		</Box>
 	</Box>
 </TcSmItem>

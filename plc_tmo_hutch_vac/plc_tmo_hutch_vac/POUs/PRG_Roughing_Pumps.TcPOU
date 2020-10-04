@@ -27,11 +27,14 @@ VAR
 	LI1K4_IP1_PTM_01_xExtIlkOK: BOOL := FALSE;
 	LI3K4_IP1_OUT_PTM_01_xExtIlkOK: BOOL := False;
 	IM5K4_PPM_PTM_01_xExtIlkOK: BOOL := False;
-END_VAR
-
-VAR 
+	
+	rTolerance : REAL;
+	xDifPressureOK : BOOL := FALSE;
+	TMO_ROUGH1_VRC_01_xExt_OK : BOOL;
+	TMO_ROUGH1_VRC_02_xExt_OK : BOOL;
 	
 END_VAR
+
 VAR RETAIN
 	TM1K4_PTM_01_xExtIlkOK: BOOL := False;
 END_VAR]]></Declaration>
@@ -52,22 +55,15 @@ END_VAR]]></Declaration>
 
 (* Check the pressure difference between TMO_ROUGH1_GPI_02 and TMO_ROUGH1_GPI_03 *) 
 
-(*
 
-rTolerance := 20;
-xDifPressureOK := TMO_ROUGH1_GPI_02.PG.rPRESS <= (TMO_ROUGH1_GPI_03.PG.rPRESS + rTolerance ) OR 
-				  TMO_ROUGH1_GPI_03.PG.rPRESS <= (TMO_ROUGH1_GPI_02.PG.rPRESS + rTolerance ) AND
+
+rTolerance := 0.1;
+xDifPressureOK := (ABS(TMO_ROUGH1_GPI_02.PG.rPRESS - TMO_ROUGH1_GPI_03.PG.rPRESS ) <= rTolerance ) AND
 				  TMO_ROUGH1_GPI_02.PG.xPRESS_OK AND TMO_ROUGH1_GPI_03.PG.xPRESS_OK;
 				  
 (* Set external interlock OK TRUE, when xDifPressureOK or TMO_ROUGH1_VRC_02 is closed *)				  
 TMO_ROUGH1_VRC_01_xExt_OK := xDifPressureOK OR TMO_ROUGH1_VRC_02.iq_stValve.i_xClsLS; 
 TMO_ROUGH1_VRC_02_xExt_OK := xDifPressureOK OR TMO_ROUGH1_VRC_01.iq_stValve.i_xClsLS; 
-
-
-*)
-
-
-
 
 
 TMO_ROUGH1_VRC_01(
@@ -76,8 +72,8 @@ TMO_ROUGH1_VRC_01(
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := TRUE, 
-				i_xOverrideMode := xSystemOverrideMode_TMO,
+				i_xExt_OK := TMO_ROUGH1_VRC_01_xExt_OK, 
+				i_xOverrideMode := xSystemOverrideMode_TMO AND TMO_ROUGH1_VRC_01_xExt_OK,
 				i_xReset := False,
 				io_fbFFHWO :=dummy_FFFO,
                 fbArbiter := dummy_fbArbiter1,
@@ -90,8 +86,8 @@ TMO_ROUGH1_VRC_02(
 				i_xDis_DPIlk := FALSE, 
 				i_xEPS_OK := TRUE,
 				i_xPMPS_OK := TRUE, 
-				i_xExt_OK := TRUE, 
-				i_xOverrideMode := xSystemOverrideMode_TMO, 
+				i_xExt_OK := TMO_ROUGH1_VRC_02_xExt_OK, 
+				i_xOverrideMode := xSystemOverrideMode_TMO AND TMO_ROUGH1_VRC_02_xExt_OK, 
 				i_xReset := false,
 				io_fbFFHWO :=dummy_FFFO,
                 fbArbiter := dummy_fbArbiter1);
@@ -160,6 +156,24 @@ PA1K4_IP1_PTM_01(i_xExtIlkOK := PA1K4_IP1_PTM_01_xExtIlkOK , iq_stPTM => );
 PA1K4_IP1_PTM_02(i_xExtIlkOK := PA1K4_IP1_PTM_02_xExtIlkOK, iq_stPTM => );
 PA1K4_IP1_PTM_03(i_xExtIlkOK := PA1K4_IP1_PTM_03_xExtIlkOK, iq_stPTM => );
 
+(*Serial Interface*)
+(*Assign adresses to the pfeiffer controllers connected to this serial terminal*)
+st_Pfeiffer_CTRL_PTM_01_02_03[1].iSerialAddress :=10;//PA1K4_IP1_PTM_01
+st_Pfeiffer_CTRL_PTM_01_02_03[1].xEnableComm := TRUE;
+st_Pfeiffer_CTRL_PTM_01_02_03[2].iSerialAddress :=9;//PA1K4_IP1_PTM_02
+st_Pfeiffer_CTRL_PTM_01_02_03[2].xEnableComm := TRUE;
+st_Pfeiffer_CTRL_PTM_01_02_03[3].iSerialAddress :=1;//PA1K4_IP1_PTM_03
+st_Pfeiffer_CTRL_PTM_01_02_03[3].xEnableComm := TRUE;	
+(* Instanitate the Function block for serial communication with Pfeiffer*)	
+PA1K4_IP1_PTM_01_02_03_COM(astPfeifferControl := st_Pfeiffer_CTRL_PTM_01_02_03,
+			   astPfeifferStatus:= st_Pfeiffer_RBK_PTM_01_02_03,
+				SerialRXBuffer:= K4S2_02_E10_SerialRXBuffer,
+				SerialTXBuffer:= K4S2_02_E10_SerialTXBuffer);
+(* Copy Status Pv's into the PTM structure*)
+PA1K4_IP1_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_01_02_03[1],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_01_02_03[1]);				
+PA1K4_IP1_PTM_02.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_01_02_03[2],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_01_02_03[2]);				
+PA1K4_IP1_PTM_03.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_01_02_03[3],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_01_02_03[3]);				
+		
 (* Leybold turbo pumps on Granite 1 *)
 
 IM4K4_PPM_PTM_01_xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := IM4K4_PPM_PTM_01.iq_stPTM, 
@@ -169,6 +183,14 @@ IM4K4_PPM_PTM_01_xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := IM4K4_PPM_PTM_
 
 IM4K4_PPM_PTM_01(i_xExtIlkOK := IM4K4_PPM_PTM_01_xExtIlkOK, iq_stPTM => );
 
+(* Instanitate the Function block for serial communication with TD20 *)
+IM4K4_PPM_PTM_01_COM(SerialRXBuffer := K4S2_02_E17_SerialRXBuffer, 
+				SerialTXBuffer:= K4S2_02_E17_SerialTXBuffer,
+				astTD20Status=>);
+(* Copy Status Pv's into the PTM structure*)
+IM4K4_PPM_PTM_01.M_Serial_IO(IM4K4_PPM_PTM_01_COM.astTD20Status);
+
+
 
 LI1K4_IP1_PTM_01_xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := LI1K4_IP1_PTM_01.iq_stPTM, 
 			i_stISG := PA1K4_IP1_GPI_01.PG, 
@@ -176,6 +198,13 @@ LI1K4_IP1_PTM_01_xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := LI1K4_IP1_PTM_
 			iq_stValve := TMO_ROUGH1_VRC_01.iq_stValve)	;
 			
 LI1K4_IP1_PTM_01(i_xExtIlkOK := LI1K4_IP1_PTM_01_xExtIlkOK, iq_stPTM => );
+
+(* Instanitate the Function block for serial communication with TD20 *)
+LI1K4_IP1_PTM_01_COM(SerialRXBuffer := K4S2_02_E18_SerialRXBuffer, 
+				SerialTXBuffer:= K4S2_02_E18_SerialTXBuffer,
+				astTD20Status=>);
+(* Copy Status Pv's into the PTM structure*)
+LI1K4_IP1_PTM_01.M_Serial_IO(LI1K4_IP1_PTM_01_COM.astTD20Status);
 
 
 
@@ -202,14 +231,32 @@ IM5K4_PPM_PTM_01_xExtIlkOK := F_Turbo_Protection_ILK(i_stTurbo := IM5K4_PPM_PTM_
 			
 IM5K4_PPM_PTM_01(i_xExtIlkOK := IM5K4_PPM_PTM_01_xExtIlkOK, iq_stPTM => );
 
-
+(*Serial Interface*)
+(*Assign adresses to the pfeiffer controllers connected to this serial terminal*)
+st_Pfeiffer_CTRL_PTM_Granite2[1].iSerialAddress :=1;//LI3K4_IP1_OUT_PTM_01
+st_Pfeiffer_CTRL_PTM_Granite2[1].xEnableComm := TRUE;
+st_Pfeiffer_CTRL_PTM_Granite2[2].iSerialAddress :=7;//TM1K4_PTM_01
+st_Pfeiffer_CTRL_PTM_Granite2[2].xEnableComm := TRUE;
+st_Pfeiffer_CTRL_PTM_Granite2[3].iSerialAddress :=9; //IM5K4_PPM_PTM_01
+st_Pfeiffer_CTRL_PTM_Granite2[3].xEnableComm := TRUE;	
+(* Instanitate the Function block for serial communication with Pfeiffer*)	
+Granite2_PTM_COM(astPfeifferControl := st_Pfeiffer_CTRL_PTM_Granite2,
+			   astPfeifferStatus:= st_Pfeiffer_RBK_PTM_Granite2,
+				SerialRXBuffer:= K4S6_01_E5_SerialRXBuffer,
+				SerialTXBuffer:= K4S6_01_E5_SerialTXBuffer);
+(* Copy Status Pv's into the PTM structure*)
+LI3K4_IP1_OUT_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_Granite2[1],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_Granite2[1]);				
+TM1K4_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_Granite2[2],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_Granite2[2]);				
+IM5K4_PPM_PTM_01.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL_PTM_Granite2[3],st_Pfeiffer_RBK:=st_Pfeiffer_RBK_PTM_Granite2[3]);				
+		
 ]]></ST>
     </Implementation>
     <LineIds Name="PRG_Roughing_Pumps">
       <LineId Id="308" Count="0" />
-      <LineId Id="314" Count="27" />
-      <LineId Id="309" Count="3" />
-      <LineId Id="81" Count="8" />
+      <LineId Id="314" Count="18" />
+      <LineId Id="334" Count="5" />
+      <LineId Id="341" Count="0" />
+      <LineId Id="82" Count="7" />
       <LineId Id="129" Count="1" />
       <LineId Id="98" Count="0" />
       <LineId Id="80" Count="0" />
@@ -246,18 +293,31 @@ IM5K4_PPM_PTM_01(i_xExtIlkOK := IM5K4_PPM_PTM_01_xExtIlkOK, iq_stPTM => );
       <LineId Id="35" Count="0" />
       <LineId Id="34" Count="0" />
       <LineId Id="36" Count="0" />
-      <LineId Id="238" Count="1" />
+      <LineId Id="381" Count="1" />
+      <LineId Id="384" Count="4" />
+      <LineId Id="407" Count="0" />
+      <LineId Id="389" Count="4" />
+      <LineId Id="383" Count="0" />
+      <LineId Id="415" Count="0" />
+      <LineId Id="397" Count="1" />
+      <LineId Id="238" Count="0" />
+      <LineId Id="396" Count="0" />
+      <LineId Id="239" Count="0" />
       <LineId Id="244" Count="0" />
       <LineId Id="241" Count="2" />
       <LineId Id="237" Count="0" />
       <LineId Id="40" Count="0" />
       <LineId Id="39" Count="0" />
+      <LineId Id="401" Count="5" />
       <LineId Id="246" Count="0" />
+      <LineId Id="399" Count="1" />
       <LineId Id="251" Count="0" />
       <LineId Id="247" Count="2" />
       <LineId Id="245" Count="0" />
       <LineId Id="250" Count="0" />
-      <LineId Id="41" Count="1" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="408" Count="6" />
+      <LineId Id="42" Count="0" />
       <LineId Id="38" Count="0" />
       <LineId Id="37" Count="0" />
       <LineId Id="33" Count="0" />
@@ -272,7 +332,9 @@ IM5K4_PPM_PTM_01(i_xExtIlkOK := IM5K4_PPM_PTM_01_xExtIlkOK, iq_stPTM => );
       <LineId Id="270" Count="3" />
       <LineId Id="269" Count="0" />
       <LineId Id="274" Count="0" />
-      <LineId Id="48" Count="2" />
+      <LineId Id="48" Count="1" />
+      <LineId Id="416" Count="16" />
+      <LineId Id="50" Count="0" />
       <LineId Id="26" Count="0" />
     </LineIds>
   </POU>
