@@ -2,8 +2,8 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <Task Name="FSVTask" Id="{83ae5866-1a1b-4374-a323-d884faa78687}">
     <!--CycleTime in micro seconds.-->
-    <CycleTime>1000</CycleTime>
-    <Priority>1</Priority>
+    <CycleTime>2000</CycleTime>
+    <Priority>19</Priority>
     <PouCall>
       <Name>PRG_FSV</Name>
     </PouCall>
